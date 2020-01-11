@@ -4,13 +4,15 @@ const q3 = r => require.ensure([], () => r(require('views/PSQ/q3.vue')), 'q3')
 const q4 = r => require.ensure([], () => r(require('views/PSQ/q4.vue')), 'q4')
 const q5 = r => require.ensure([], () => r(require('views/PSQ/q5.vue')), 'q5')
 const questionIndex = r => require.ensure([], () => r(require('views/home/index.vue')), 'questionIndex')
+const login = r => require.ensure([], () => r(require('views/home/login.vue')), 'login')
+const book = r => require.ensure([], () => r(require('views/home/book.vue')), 'book')
 const childIndex = r => require.ensure([], () => r(require('views/PSQ/childIndex.vue')), 'childIndex')
 export default [{
     path: '*',
   },
   {
     path: '/',
-    redirect: '/questionNaire',
+    redirect: '/login',
     meta: {
       title: '首页'
     }
@@ -20,6 +22,20 @@ export default [{
     component: questionIndex,
     meta: {
       title: '母乳喂养调查问卷'
+    }
+  },
+  {
+    path:'/login',
+    component: login,
+    meta: {
+      title: '调查问卷登录'
+    }
+  },
+  {
+    path:'/aggreenment',
+    component: book,
+    meta: {
+      title: '知情同意书'
     }
   },
    {

@@ -129,7 +129,7 @@
         </Vuechecklist>
         <!--拆分下的省市区三级联动-->
         <Vue-select
-                v-if="showAdress"
+                v-show="showAdress"
                 :ref="showAdress"
                 @changeValue='changeCountry'
                 :province='province'
@@ -153,7 +153,7 @@
     import {dateFunction} from '@/utils/dateFormat'
     import Vuechecklist from  '@/components/nomal/comfirm'
     import VuePickers from  '@/components/picker/picker_list'
-    import VueSelect from '@/components/picker/selectLocation'
+    import VueSelect from '@/components/picker/selectLocation1'
     import dateTimePicker from '@/components/picker/datetime-picker'
     export default {
         name: "drageInput",
@@ -451,11 +451,10 @@
             changeCountry(val){  //省市区
                 this.showAdress=val.show
                 let Mval=val.province+' '+val.city+' '+val.county;
-                if(val.result){
-                    this.$emit('changeInput',Mval)
-                    this.$emit('update:keyValue',Mval)
-                    this.$emit('update:modelValue',val.NumbId)
-                }
+                if(val.isClose) return false
+                this.$emit('changeInput',Mval)
+                this.$emit('update:keyValue',Mval)
+                this.$emit('update:modelValue',val.NumbId)
             }
         },
         mounted(){

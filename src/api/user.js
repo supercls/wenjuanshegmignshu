@@ -10,7 +10,7 @@ export function SaveQuestionair_Hospital(data) { //医疗机构
 
 export function GetSzdq(data) { //获取地区
     return service({
-        url: '/BreastFeedingQustionair/GetSzdq',
+        url: '/BreastFeedingQuestionair/GetSzdq',
         method: 'get',
         params:data
     })
@@ -18,7 +18,23 @@ export function GetSzdq(data) { //获取地区
 
 export function GetCommunity(data) { //获取社区
     return service({
-        url: '/BreastFeedingQustionair/GetCommunity',
+        url: '/BreastFeedingQuestionair/GetCommunity',
+        method: 'get',
+        params:data
+    })
+}
+
+export function GetMobileVerifyCode(data) { //获取验证码
+    return service({
+        url: '/BreastFeedingQuestionair/GetMobileVerifyCode',
+        method: 'get',
+        params:data
+    })
+}
+
+export function MatchVerCode(data) { //匹配验证码
+    return service({
+        url: '/BreastFeedingQuestionair/MatchVerCode',
         method: 'get',
         params:data
     })

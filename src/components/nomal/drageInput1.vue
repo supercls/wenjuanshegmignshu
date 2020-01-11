@@ -154,7 +154,7 @@
     import {dateFunction} from '@/utils/dateFormat'
     import Vuechecklist from  '@/components/nomal/comfirm'
     import VuePickers from  '@/components/picker/picker_list'
-    import VueSelect from '@/components/picker/selectLocation1'
+    import VueSelect from '@/components/picker/selectLocation'
     import dateTimePicker from '@/components/picker/datetime-picker'
     export default {
         name: "drageInput",

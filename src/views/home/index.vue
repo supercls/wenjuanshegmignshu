@@ -15,10 +15,10 @@
             <div class="center">
                 <div class="zf-wrapper-mom">
                     <div class="form-component">
-                        <drage-input1 v-model="dataList.a" :keyValue.sync="dataList.a" :modelValue.sync="dataList.b"
+                        <drage-input v-model="dataList.a" :keyValue.sync="dataList.a" :modelValue.sync="dataList.b"
                                     :slotContent="slotContent1" typeItem="pickCounty" :required="true"
                                     :disabled="true"  label="填表所在地" class="requrePage1" data-name="DistrictNo">
-                        </drage-input1>
+                        </drage-input>
                         <div style="margin:20px auto;"></div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
     </div>
 </template>
 <script>
-    import drageInput1 from '@/components/nomal/drageInput1'
+    import drageInput from '@/components/nomal/drageInput'
     import { firstList ,secoundList} from '@/utils/community'
     export default{
         name:'母乳喂养调查问卷',
@@ -67,7 +67,7 @@
             }
         },
         components:{
-            drageInput1,
+            drageInput,
         },
         mounted(){
            
