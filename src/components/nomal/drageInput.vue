@@ -1,5 +1,5 @@
 <template>
-    <div class="drage-wrapper border-1px">
+    <div class="drage-wrapper">
         <a class="mint-cell mint-field drageInp"  @click="changeMobile">
             <!---->
             <div class="mint-cell-left"></div>
@@ -147,7 +147,7 @@
      * date--日期选择器
      * pickeMore--多级选择器
      * checkList--弹窗类型多级多选框
-     * pickCounty--省市区三级联动
+     * pickTwo--二级联动
      * 时间和地区都可以用vuepicker继续改造下
      */
     import {dateFunction} from '@/utils/dateFormat'
@@ -333,7 +333,7 @@
                                this.$emit('changeInput',initData1.text+initData2.text+initData3.text)
                                : this.$emit('changeInput','')  //触发model
                    }
-                   else if(newVal && this.typeItem=='pickCounty'){   //省市区联动
+                   else if(newVal && this.typeItem=='pickTwo'){   //省市区联动
                         let Mlen=newVal.split(' ');
                         this.province=Mlen[0]
                         this.city=Mlen[1]||''
@@ -395,7 +395,7 @@
                         this.$emit('update:keyValue',this.currentValue)
                         this.showChecklist=true
                         break;
-                    case 'pickCounty':
+                    case 'pickTwo':
                         this.showAdress=true;
                         this.$emit('update:keyValue',this.currentValue)
                         break;
@@ -448,7 +448,7 @@
                 this.$emit('update:keyValue',Chaval)   //two-way binding
                 this.FshowPicke=false
             },
-            changeCountry(val){  //省市区
+            changeCountry(val){  //省市区+二级联动
                 this.showAdress=val.show
                 let Mval=val.province+' '+val.city+' '+val.county;
                 if(val.isClose) return false
@@ -502,10 +502,12 @@
             font-size: 30px;
         }
         .mint-field-core{
-            padding-right: 10px;
+            padding-left: 10px;
+            text-align: left;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
+        
         .mint-cell-title{
             margin-right: 10px;
             .mint-cell-text{

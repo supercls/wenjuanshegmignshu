@@ -67,6 +67,7 @@ export default {
 
     currentValue(val) {
       this.$emit('input', val);
+      this.$emit('changeInput',val)
     }
   },
 
@@ -159,7 +160,7 @@ export default {
     -webkit-overflow-scrolling: touch;
     padding:20px 0px;
   }
-  .mint-radio-label{margin-top: -5px;}
+  .mint-radio-label{margin-top: -5px;color:#333;}
   .mint-radiolist-label{position: relative;}
   .otherInput{height: 50px;line-height: 50px;font-size: 28px;border-bottom:1px solid #E4E4E4;padding-left: 10px;position:absolute;right:0;top:0;}
   .spanRit{display: inline-block;cursor: pointer;float:right;color: #CCCCCC;padding: 3px 10px;}

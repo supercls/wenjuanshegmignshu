@@ -17,7 +17,7 @@
 			</div>
 			<span class="user-tc-t1" @click="junmpUrl()">《用户协议及隐私条款》</span>
 		</div>
-        <mt-button :disabled="!imgOnoff" class="submit" :class="{active:imgOnoff}" @click="submit">下一步</mt-button>   
+        <mt-button :disabled="!imgOnoff" class="submit" :class="{actives:imgOnoff}" @click="submit">下一步</mt-button>   
 	</div>
 </template>
 
@@ -220,7 +220,7 @@
             font-size: 36px;
             border-radius: 10px;
         }
-        .active{
+        .actives{
             background:#026DBB;
         }
 	}

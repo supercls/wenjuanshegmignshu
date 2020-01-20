@@ -34,7 +34,7 @@ module.exports = {
   },
   chainWebpack: config => {
     // 这里用到了webpack.DefinePlugin
-    config.resolve.symlinks(true) // 修复热更新失效
+   // config.resolve.symlinks(true) // 修复热更新失效
     config.plugin('define').tap(args => {
       // 这里必须要使用`"string"`,字符串必须要单双引号俩层嵌套，否则使用到process.env的时候会报错
       // 文档：这个插件直接执行文本替换，给定的值必须包含字符串本身内的实际引用。通常，有俩种方式
@@ -65,7 +65,8 @@ module.exports = {
           @import "assets/styles/_vars.scss";
         `
       }
-    }
+    },
+    sourceMap: false,
   },
   pwa: {
     // 设置favicon图标路径
@@ -79,7 +80,23 @@ module.exports = {
   },
   configureWebpack: config => {
     const plugins = [
-      new HardSourceWebpackPlugin(),
+      new HardSourceWebpackPlugin({   //import  wenpack构建
+        // cacheDirectory是在高速缓存写入。默认情况下，将缓存存储在node_modules下的目录中，因此如果清除了node_modules，则缓存也是如此
+        cacheDirectory: 'node_modules/.cache/hard-source/[confighash]',
+        recordsPath: 'node_modules/.cache/hard-source/[confighash]/records.json',
+        // configHash在启动webpack实例时转换webpack配置，并用于cacheDirectory为不同的webpack配 
+        // 置构建不同的缓存
+        configHash: function(webpackConfig) {
+           return require('node-object-hash')({sort: false}).hash(webpackConfig);
+        },
+        // 当加载器，插件，其他构建时脚本或其他动态依赖项发生更改时，hard-source需要替换缓存以确保输 
+        // 出正确。environmentHash被用来确定这一点。如果散列与先前的构建不同，则将使用新的缓存
+        environmentHash: {
+           root: process.cwd(),
+           directories: [],
+           files: ['package-lock.json', 'yarn.lock'],
+        },
+    }),
       new AutoDllPlugin({       //对于第三方插件无需每次都重新打包编译，离线缓存
         inject: true, // will inject the DLL bundle to index.html
         debug: true,
