@@ -261,7 +261,7 @@
                     </div>
                 </div>
                 <!--footer imgUpload-->
-                <div class="footer-div">
+                <!-- <div class="footer-div">
                     <p>照片上传</p>
                     <div style="display: grid;grid-template-columns: 30% 54%;grid-column-gap:8%;">
                         <upload-img
@@ -273,7 +273,7 @@
                         </upload-img>
                     </div>
                     <button @click="submitForm" class="footButton">提交保存</button>
-                </div>
+                </div> -->
             </mt-tab-container-item>
         </mt-tab-container>
     </div>
@@ -285,7 +285,6 @@ import {nations} from '@/utils/nations'
 import * as slotList  from '@/utils/slotContent'
 import {isvalidUsername,isCard} from '@/utils/vaildata'
 import {dateFunction} from '@/utils/dateFormat'
-import uploadImg from '@/components/upload/recta'
 import {getWxdata} from '@/utils/auth'
 export default {
     name: "EtMain",
@@ -480,7 +479,6 @@ export default {
     },
     components:{
         drageInput,
-        uploadImg
     },
     watch:{        //处理数据库数据设计错误
       'dataList.cZdxzdm'(val){

@@ -15,7 +15,7 @@
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
                             <drage-input v-model="dataList.a" :keyValue.sync="dataList.a" :modelValue.sync="dataList.b"
-                                        :slotContent="slotContent1" typeItem="pickTwo" :required="true"
+                                         typeItem="pickTwo" :required="true"
                                         :disabled="true"  label="您所在的社区" class="requrePage1" data-name="DistrictNo">
                             </drage-input>
                             <div class="form-list">
@@ -48,7 +48,7 @@
                 </div>
             <button @click="subMot">提交</button>
             </div>
-            <!--page1-->
+            <!--page2-->
             <div class="page2" v-if="page2">
                 <div class="center">
                     <div class="zf-wrapper-mom">
@@ -124,14 +124,106 @@
                     </div>
                 </div>
             </div>
-            <!--page2-->
+            <!--page3-->
+            <!--page3-->
+            <div class="page3" v-if="page3">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">5. 您当前的就业情况:<span class="isRed Xl">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage3"
+                                        @changeInput="changeInput(dataList.Xl,'Xl')"
+                                        title=""  data-name="Xl"
+                                        v-model="dataList.Xl"
+                                        :options="[{ label: '家庭主妇',value: '1'},{ label: '兼职工作',value: '2'},{ label: '全职工作',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">6. 你的工作单位性质<span class="isRed Hyzk">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage3"
+                                        @changeInput="changeInput(dataList.Hyzk,'Hyzk')"
+                                        title=""  data-name="Hyzk"
+                                        v-model="dataList.Hyzk"
+                                        :options="[{ label: '国家公务人员（公务员或事业单位）',value: '1'},{ label: '国企',value: '2'},{ label: '外企',value: '3'},{ label: '私营企业',value: '4'},{ label: '个体经营',value: '5'},{ label: '其他',value: '6'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">7.您的民族<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage3"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '汉族',value: '1'},{ label: '其他',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">8. 您的户口所在地：<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage3"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '上海',value: '1'},{ label: '其他',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list"  style="margin-top:10px;">
+                                <p class="form-p1">9. 您已在沪居住的年限（按合计月数填写）<span class="isRed Csny">*</span></p>
+                                <div class="check-list" style="padding:0">
+                                    <drage-input class="requrePage3" 
+                                        data-name="Csny"  
+                                        v-model="dataList.as"  
+                                        :keyValue.sync="dataList.as"
+                                      
+                                        placeholder="请选择出生日期"
+                                        typeItem="pickeMore"
+                                        :slotContent="slotContent1"
+                                        :isTwo="true"
+                                        :isStr="true"
+                                        :disabled="true"  
+                                        :iconRight="true" 
+                                        label="" >
+                                    </drage-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('3','2')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 3 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('3','4','requrePage3')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page4-->
         </div>
     </div>
 </template>
 <script>
     import drageInput from '@/components/nomal/drageInput'
-    import { firstList ,secoundList} from '@/utils/community'
     import superRadio from '@/components/nomal/superRadio'
+    import {clot1,clot2} from '@/utils/slotContent'
+    //dom数据结构无需优化，需求变动太大，浪费时间，灵活运用
     export default{
         name:'母乳喂养调查问卷',
         provide () {    //祖父级向son传递参数
@@ -143,29 +235,18 @@
             return{
                 dataList:{
                     a:'闵行区 七宝',
-                    b:''
+                    b:'',
+                    as:'2年 10个月'
                 },
                 page1:false,
-                page2:true,
-                slotContent1:[{
-                        flex: 1,
-                        values: firstList,
-                        className: 'slot1',
-                        textAlign: 'center',
-                        defaultIndex: 0
-                    },
-                    {
-                        divider: true,
-                        content: '-',
-                        className: 'slot2'
-                    }, 
-                    {
-                        flex: 1,
-                        values: secoundList,
-                        className: 'slot2',
-                        textAlign: 'center',
-                        defaultIndex: 0                    
-                    }]
+                page2:false,
+                page3:true,
+                slotContent1: { 
+                    columns: 2,
+                    default: [{text: '', value: ''},{text: '', value: ''}],
+                    pData1:clot1,
+                    pData2:clot2
+                },
             }
         },
         components:{
@@ -216,7 +297,7 @@
                 let pageNext='page'+next;
                 this[pageBefore]=false;
                 this[pageNext]=true;
-                document.querySelector('.qs-content').scrollTop=420  //翻页时候滚动到最顶部
+                document.querySelector('.qs-content').scrollTop=0  //翻页时候滚动到最顶部
             }
         }
     }

@@ -1,4 +1,4 @@
-const q1 = r => require.ensure([], () => r(require('views/PSQ/q1.vue')), 'q1')
+const q1 = r => require.ensure([], () => r(require('views/EtMain/index.vue')), 'q1')
 const q2 = r => require.ensure([], () => r(require('views/PSQ/q2.vue')), 'q2')
 const q3 = r => require.ensure([], () => r(require('views/PSQ/q3.vue')), 'q3')
 const q4 = r => require.ensure([], () => r(require('views/PSQ/q4.vue')), 'q4')

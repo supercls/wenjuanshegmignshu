@@ -129,7 +129,7 @@
         </Vuechecklist>
         <!--拆分下的省市区三级联动-->
         <Vue-select
-                v-show="showAdress"
+                v-if="showAdress"
                 :ref="showAdress"
                 @changeValue='changeCountry'
                 :province='province'
@@ -256,6 +256,7 @@
         watch:{
             keyValue:{
                 handler:function(newVal,oldVal){
+                    console.log(newVal)
                    if( Object.prototype.toString.call(newVal) !='[object Undefined]'
                        &&Object.prototype.toString.call(newVal) !='[object Null]'
                        && this.typeItem=='pickeMore'
@@ -299,7 +300,10 @@
                        && !this.isThird
                    ){
                         let Mlen=[]
+                        console.log(newVal)
+                          console.log(0)
                         Mlen=newVal.toString().split(" ")
+                     
                         let data1=this.slotContent.pData1
                         let data2=this.slotContent.pData2
                         let initData1=data1.find((val,index)=>{
@@ -308,6 +312,10 @@
                         let initData2=data2.find((val,index)=>{
                            return val.value==Mlen[1]
                         })
+                        
+                        console.log(initData1)
+                        console.log(initData2)
+                        console.log(initData1.text+initData2.text)
                         initData1?
                             this.$emit('changeInput',initData1.text+initData2.text)
                             : this.$emit('changeInput','')  //触发model
