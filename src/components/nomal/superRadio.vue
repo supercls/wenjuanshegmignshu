@@ -15,14 +15,32 @@
           <span class="mint-radio-core"></span>
         </span>
         <span class="mint-radio-label" v-text="option.label || option"></span>
-        <input type="text" 
-            :placeholder="option.placeholder ||'请输入'"  
-            @change="changeInput(option.name,option.filed)" 
-            v-model="option.filed" 
-            v-if="option.other && currentValue==option.value" 
-            class="otherInput">
       </label>
+      <div             
+          v-if="option.picker && currentValue == option.value"
+          class="spanRit"
+          @click="showPicker(option.name,option)">
+         <span> {{option.filed || option.placeholder}}{{option.filed?option.icon:''}}</span>
+          <div class="light-icon-right">
+                <img src="../../assets/images/public/icon__zizhujiance@2x.png" alt="">
+            </div>
+      </div>  
     </div>
+     <!--临时选择器-->
+    <vue-pickers
+              v-if="FshowPicke"
+              :show="FshowPicke"
+              :defaultValue="keyValue"
+              :selectData="FpickData"
+              @cancel="FcloseFn"
+              @confirm="FconfirmFn">
+    </vue-pickers>
+    <mt-popup
+            v-if="FshowPicke"
+            v-model="FshowPicke"
+            @touchmove.prevent
+            position="bottom">
+    </mt-popup>
   </div>
 </template>
 
@@ -41,12 +59,18 @@
  * @example
  * <mt-radio v-model="value" :options="['a', 'b', 'c']"></mt-radio>
  */
+import VuePickers from  '@/components/picker/picker_list'
+import * as slotList   from '@/utils/slotContent.js'
 export default {
   name: 'mt-radio',
 
   props: {
     title: String,
     align: String,
+    pickContent:{
+       type:[String,Number,Array,Object,Boolean]
+    },
+    defaultValue:String,
     options: {
       type: Array,
       required: true
@@ -56,15 +80,34 @@ export default {
 
   data() {
     return {
-      currentValue: this.value
+      currentValue: this.value,
+      FshowPicke:false,
+      keyValue:'',
+      FpickData:{
+         columns: 1,
+         default: [{text: '', value: ''}],
+         pData1:[]
+      },
+      dataItem:null,
+      dataName:'',
     };
   },
-
+  components:{
+    VuePickers
+  },
   watch: {
     value(val) {
       this.currentValue = val;
     },
-
+    pickContent:{
+      handler(val){
+          console.log(this.defaultValue)
+          let arr=[{text:this.defaultValue||'',value:this.defaultValue||''}]
+          this.FpickData.default=arr
+          this.FpickData.pData1=slotList[val] || slotList.timaAge
+        },
+        immediate:true
+    },
     currentValue(val) {
       this.$emit('input', val);
       this.$emit('changeInput',val)
@@ -75,6 +118,41 @@ export default {
     changeInput(name,val){   //针对特殊处理进行传值赋值--有待完善
       let data=name.split('.')
       this.$parent[data[0]][data[1]]=val
+    },
+     showPicker(name,val){   //picker选择器
+      this.FshowPicke=true;
+      this.dataName=name;
+      this.dataItem=val;
+      event.preventDefault();
+    },
+    FcloseFn(){          //关闭
+        this.FshowPicke=false
+    },
+    FconfirmFn(val){
+        let Chaval, Chatxt;
+        if(val.select1 && val.select2 &&val.select3){  //三级
+            Chaval=(val.select1.value).toString()+' '+(val.select2.value).toString()+' '+(val.select3.value).toString()
+            Chatxt=val.select1.text+''+val.select2.text+''+val.select3.text
+        }
+        else if(val.select1 && val.select2){   //二级
+            if(this.isStr){
+                Chaval=(val.select1.value).toString()+' '+(val.select2.value).toString()
+            }
+            else{
+                Chaval=(val.select1.value).toString()+(val.select2.value).toString()
+            }
+            Chatxt=val.select1.text+''+val.select2.text
+        }
+        else if(val.select1){       //一级
+            Chatxt=val.select1.text
+            Chaval=val.select1.value
+        }
+        this.dataItem.filed=Chaval
+        let data=this.dataName.split('.')
+        this.$parent[data[0]][data[1]]=Chaval
+        this.keyValue=Chaval
+        this.FshowPicke=false
+        
     },
   }
 };
@@ -163,5 +241,12 @@ export default {
   .mint-radio-label{margin-top: -5px;color:#333;}
   .mint-radiolist-label{position: relative;}
   .otherInput{height: 50px;line-height: 50px;font-size: 28px;border-bottom:1px solid #E4E4E4;padding-left: 10px;position:absolute;right:0;top:0;}
-  .spanRit{display: inline-block;cursor: pointer;float:right;color: #CCCCCC;padding: 3px 10px;}
+  .spanRit{display:block;cursor: pointer;color: #666;padding: 10px 10px;display: flex;padding-left: 30px;font-size: 30px;margin-top: 15px;border-bottom: 1px dashed;border-top: 1px dashed }
+  .spanRit span{flex: 1;}
+  .light-icon-right img{
+      width: 17px;
+      height: 33px;
+      padding-right: 0px;
+      display: inline-block;
+  }
 </style>

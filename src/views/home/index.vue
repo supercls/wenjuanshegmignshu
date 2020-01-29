@@ -364,8 +364,148 @@
                         </div>
                     </div>
                 </div>
-                <!--page5-->
             </div>
+            <!--page5-->
+            <div class="pag54" v-if="page5">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">19. 孩子的出生体重<span class="isRed Xl">*</span></p>
+                               <div class="check-list" style="padding:0">
+                                    <drage-input 
+                                        v-model="dataList.Hzcstz" 
+                                        class="requrePage5" 
+                                        data-name="Hzcstz"  
+                                        isNum="4"
+                                        placeholder="请输入您孩子的出生体重"
+                                        :keyValue.sync="dataList.Hzcstz"  
+                                        type="number"
+                                        maxlength="6"
+                                        unit="g"  
+                                        label="" >
+                                    </drage-input>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">孩子的出生身长(cm)<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  style="padding:0" >
+                                    <drage-input 
+                                        v-model="dataList.se" 
+                                        :keyValue.sync="dataList.se"
+                                        :iocnRight="true"  unit="cm"
+                                        class="requrePage5" 
+                                        data-name="Fqnl"
+                                        :slotContent="slotContent4" 
+                                        placeholder="请选择您孩子的出生身长"
+                                        typeItem="pickeMore" 
+                                        :disabled="true"
+                                        label="" >
+                                    </drage-input>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">20. 此次分娩住院时长为(天）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  style="padding:0" >
+                                    <drage-input 
+                                        v-model="dataList.se" 
+                                        :keyValue.sync="dataList.se"
+                                        :iocnRight="true"  unit="天"
+                                        class="requrePage5" 
+                                        data-name="Fqnl"
+                                        :slotContent="slotContent5" 
+                                        placeholder="请选择此次分娩住院时长"
+                                        typeItem="pickeMore" 
+                                        :disabled="true"
+                                        label="" >
+                                    </drage-input>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">21. 您是否计划产后返回工作岗位/学校学习?<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage5"
+                                        pickContent="clot6"
+                                        defaultValue="3"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是的，而且已经恢复工作',value: '1'},{ label: '是的，计划产后______ 个月返回工作岗位/学校学习',value: '2',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'个月'},
+                                        { label: '否',value: '3'},{ label: '不确定',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                           
+                            <div class="form-list">
+                               <p class="form-p1">22. 你的带薪产假时间是（包括周末以及节假日）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage5"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '低于 98 天',value: '1'},{ label: '98 天以上',value: '2'},{ label: '120以上',value: '3'},{ label: '180 天以上',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">23. 您的单位会安排不少于 1 小时的哺乳时间吗（相关劳动保护规定）？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage5"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '会',value: '1'},{ label: '不会',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">24. 您单位有母乳喂养室吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage5"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '有',value: '1'},{ label: '没有',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>C.既往母乳喂养经验 / 经历（在最小的孩子之前）<span style="color:#999999;font-size:16px;">( 接下来，我想了解一下您在生最小的宝宝之前的母乳喂养方面的经验 / 经历 )</span></h3>
+                            <div class="form-list">
+                               <p class="form-p1">25. 您之前用母乳喂养过孩子吗？(指您最小的宝宝之前的孩子)<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list">
+                                    <super-radio
+                                        class="requrePage5"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '有',value: '1'},{ label: '没有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('5','4')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 5 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('5','6','requrePage5')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--page6-->
         </div>
     </div>
 </template>
@@ -392,7 +532,8 @@
                 page1:false,
                 page2:false,
                 page3:false,
-                page4:true,
+                page4:false,
+                page5:true,
                 slotContent1: { 
                     columns: 2,
                     default: [{text: '', value: ''},{text: '', value: ''}],
@@ -409,6 +550,16 @@
                     default: [{text: '', value: ''},{text: '', value: ''}],
                     pData1:slotList.clot4,
                     pData2:slotList.clot5
+                },
+                slotContent4: { 
+                    columns: 1,
+                    default: [{text: '50', value: '50'}],
+                    pData1:slotList.clot6
+                },
+                slotContent5: { 
+                    columns: 1,
+                    default: [{text: '5', value: '5'}],
+                    pData1:slotList.clot7
                 },
             }
         },

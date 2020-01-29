@@ -38,12 +38,12 @@
                             :type="type"
                     class="mint-field-core" />
                     <!---->
-                    <div class="mint-field-clear"
+                    <!-- <div class="mint-field-clear"
                          v-if="!disableClear"
                          v-show="currentValue  && active"
                          @click="clearValue">
                         <i class="mintui mintui-field-error"></i>
-                    </div>
+                    </div> -->
                     <!--对勾选择器请选择-->    
                     <div class="mint-cell-right-danw checkListDiv"  v-if="typeItem=='checkRight'">
                         <span v-if="currentValue=='1'" class="check-style-unequal-width" ></span>
