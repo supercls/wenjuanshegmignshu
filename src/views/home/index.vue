@@ -366,7 +366,7 @@
                 </div>
             </div>
             <!--page5-->
-            <div class="pag54" v-if="page5">
+            <div class="pag5" v-if="page5">
                 <div class="center">
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
@@ -506,6 +506,127 @@
                 </div>
             </div>
              <!--page6-->
+            <div class="pag6" v-if="page6">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">26. 您的家人（妈妈、婆婆、姐妹等）之前有母乳喂养经历/经验吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '没有',value: '1'},{ label: '有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">总体而言，她/她们的母乳喂养经历/经验是积极的还是消极的？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '积极的',value: '1'},{ label: '消极的',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">27. 您的朋友/同事之前有母乳喂养经历/经验吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '没有',value: '1'},{ label: '有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">总体而言，她/她们的母乳喂养经历/经验是积极的还是消极的？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '积极的',value: '1'},{ label: '消极的',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>        
+
+                            <div class="form-list">
+                               <p class="form-p1">28. 此次怀孕期间，您有参加任何有关母乳喂养的课程吗?<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '参加过',value: '1'},{ label: '没参加过',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">29. 此次怀孕期间，您参加的母乳喂养相关课程来自（多选题）<span class="isRed Hyzk">*</span></p>
+                               <div class="check-list"  >
+                                    <super-checklist
+                                        title=""
+                                        class="requrePage6 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '产检医院',value: '1'},{ label: '社区卫生中心',value: '2'},{ label: '妇幼保健机构 ',value: '3'},{ label: '线下母婴服务机构（如月子会所等提供育婴服务、销售母婴产品的机构） ',value: '4'},{ label: '线上的母婴服务（例如手机 APP 和网课） ',value: '5'}
+                                        ,{ label: '奶粉公司及其工作人员',value: '6'},{ label: '商场活动',value: '7'},{ label: '其他',value: '8'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">30. 在备孕期间，您有得到过购买奶粉的优惠的信息吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '有',value: '1'},{ label: '没有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                             <div class="form-list">
+                               <p class="form-p1">您获得过购买奶粉的优惠方式的途径包括（多选题）<span class="isRed Hyzk">*</span></p>
+                               <div class="check-list"  >
+                                    <super-checklist
+                                        title=""
+                                        class="requrePage6 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '超市或母婴店的奶粉促销活动',value: '1'},{ label: '购物网站/微店/APP、公共场所、大众媒体等发布的奶粉促销活动',value: '2'},{ label: '亲戚朋友的介绍 ',value: '3'},{ label: '医院工作人员的推荐 ',value: '4'},{ label: '其他',value: '5'}
+                                        ]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('6','5')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 6 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('6','7','requrePage6')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--page7-->
         </div>
     </div>
 </template>
@@ -533,7 +654,8 @@
                 page2:false,
                 page3:false,
                 page4:false,
-                page5:true,
+                page5:false,
+                page6:true,
                 slotContent1: { 
                     columns: 2,
                     default: [{text: '', value: ''},{text: '', value: ''}],
