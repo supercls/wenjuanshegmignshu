@@ -101,7 +101,6 @@ export default {
     },
     pickContent:{
       handler(val){
-          console.log(this.defaultValue)
           let arr=[{text:this.defaultValue||'',value:this.defaultValue||''}]
           this.FpickData.default=arr
           this.FpickData.pData1=slotList[val] || slotList.timaAge

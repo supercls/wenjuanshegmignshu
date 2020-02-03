@@ -627,6 +627,87 @@
                 </div>
             </div>
              <!--page7-->
+             <div class="pag7" v-if="page7">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">31. 在备孕期间，有人告诉过您“母乳喂养有困难时找谁咨询或解决困难”吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage7"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '没有',value: '1'},{ label: '有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">她/他告诉您咨询或解决困难的途径包括（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        title=""
+                                        class="requrePage6 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '找亲友、家里老人',value: '1'},{ label: '找周围有最近育儿经验的人',value: '2'},{ label: '找催乳师、通乳师或者月嫂 ',value: '3'},{ label: '找医护人员 ',value: '4'},{ label: '找其他人',value: '5'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">32. 在怀孕期间，您从哪些途径获得过购买奶粉的优惠方式？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        title=""
+                                        class="requrePage6 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '超市或母婴店的奶粉促销活动',value: '1'},{ label: '购物网站、公共场所、大众媒体等发布的奶粉促销活动',value: '2'},{ label: '亲戚朋友的介绍',value: '3'},{ label: '医院工作人员的推荐 ',value: '4'},{ label: '其他',value: '5'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">33. 在怀孕期间，有人告诉过您“母乳喂养有困难时找谁咨询或解决困难”吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '没有',value: '1'},{ label: '有',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>        
+
+                            <div class="form-list">
+                               <p class="form-p1">她/他告诉您咨询或解决困难的途径包括（多选题）<span class="isRed Hyzk">*</span></p>
+                               <div class="check-list"  >
+                                    <super-checklist
+                                        title=""
+                                        class="requrePage6 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '找亲友、家里老人',value: '1'},{ label: '找周围有最近育儿经验的人',value: '2'},{ label: '找催乳师、通乳师或者月嫂 ',value: '3'},{ label: '找医护人员 ',value: '4'},{ label: '找其他人 ',value: '5'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('7','6')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 7 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('7','8','requrePage6')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--page8-->
         </div>
     </div>
 </template>
@@ -655,7 +736,8 @@
                 page3:false,
                 page4:false,
                 page5:false,
-                page6:true,
+                page6:false,
+                page7:true,
                 slotContent1: { 
                     columns: 2,
                     default: [{text: '', value: ''},{text: '', value: ''}],
