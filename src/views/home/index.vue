@@ -708,6 +708,351 @@
                 </div>
             </div>
              <!--page8-->
+              <div class="pag8" v-if="page8">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">34. 据您所知，配方奶粉对孩子的好处与母乳一样吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage8"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '不一样',value: '1'},{ label: '配方奶粉和母乳对孩子的好处差不多',value: '2'},{ label: '不清楚',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">35. 对于“母乳喂养可以有益于孩子的智力发展”这句话，您的观点是？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage8"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '母乳喂养有利于儿童智力发育',value: '1'},{ label: '母乳喂养可能有利于智力发育',value: '2'},{ label: '母乳喂养和良好的养育环境一起促进儿童智力发育',value: '3'},{ label: '母乳喂养与智力发育没有必然联系',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">36. 您是否听说过“母乳喂养的孩子长大后肥胖以及糖尿病风险低”？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage8"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '没有听说过',value: '1'},{ label: '听说过，但是证据不够充分，需要进一步验证',value: '2'},{ label: '听说过，母乳喂养预防成人期慢性病，降低肥胖和 2 型糖尿病风险',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">37. 当广告上宣传：“某种奶粉能让孩子睡眠良好，减少夜间哭啼”，您会去尝试吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage8"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '会尝试',value: '1'},{ label: '了解更多信息之后，再决定',value: '2'},{ label: '不相信，不会尝试',value: '3'},{ label: '说不好',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">38. 当朋友说：“某种奶粉能让孩子睡眠良好，减少夜间哭啼”，您会去尝试吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage8"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '会尝试',value: '1'},{ label: '了解更多信息之后，再决定',value: '2'},{ label: '不相信，不会尝试',value: '3'},{ label: '说不好',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('8','7')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 8 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('8','9','requrePage6')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--page9-->
+             <div class="pag9" v-if="page9">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">39. 孩子出生后，您从哪些途径获得过购买奶粉的优惠方式？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        title=""
+                                        class="requrePage9" data-name="Zjbbwt"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '超市或母婴店的奶粉促销活动',value: '1'},{ label: '购物网站、公共场所、大众媒体等发布的奶粉促销活动',value: '2'},{ label: '亲戚朋友的介绍 ',value: '3'},{ label: '医院工作人员的推荐 ',value: '4'},{ label: '其他',value: '5'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">40. 孩子出生后，有人告诉过您“母乳喂养有困难时找谁咨询或解决困难”吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage9"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '有',value: 'a'},{ label: '没有',value: 'b'}]">
+                                    </super-radio>
+                                </div>
+                            </div>     
+                            <div class="form-list">
+                               <p class="form-p1">她/他告诉您咨询或解决困难的途径包括（多选题）<span class="isRed Hyzk">*</span></p>
+                               <div class="check-list"  >
+                                    <super-checklist
+                                        title=""
+                                        class="requrePage9" data-name="Zjbbwt" 
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '找亲友、家里老人',value: '1'},{ label: '找周围有最近育儿经验的人',value: '2'},{ label: '找催乳师、通乳师或者月嫂 ',value: '3'},{ label: '找医护人员 ',value: '4'},{ label: '找其他人 ',value: '5'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <h3>D. 最小孩子的喂养打算<span style="color:#999999;font-size:16px;">(这里，我想了解一下您当时打算如何喂养您最小的孩子的)</span></h3>
+                            <div class="form-list">
+                               <p class="form-p1">41. 您什么时候决定了孩子的喂养方式？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage9"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '怀孕前',value: '1'},{ label: '怀孕早期（怀孕 14 周前）',value: '2'},{ label: '怀孕中期（怀孕 14 周到 28 周前）',value: '3'},{ label: '怀孕晚期（怀孕 28 周后）',value: '4'},{ label: '分娩后',value: '5'},{ label: '不记得了',value: '6'}]">
+                                    </super-radio>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('9','8')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 9 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('9','10','requrePage9')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page10-->
+            <div class="pag10" v-if="page10">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">42. 当时您决定如何喂养您的孩子？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        title=""
+                                        class="requrePage10" data-name="Zjbbwt"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '纯母乳喂养（即不喂给婴儿除母乳之外的任何食物或饮料，甚至不不喂水）',value: 'a'},{ label: '混合喂养（母乳和配方奶一起喂）',value: 'b'},{ label: '人工喂养（只喂配方奶） ',value: 'c'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">您当时计划纯母乳喂养多久？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '1 个月',value: '1'},{ label: '2 个月',value: '2'},{ label: '3 个月',value: '3'},{ label: '4 个月',value: '4'},{ label: '5 个月',value: '5'},{ label: '6 个月以上',value: '6'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">您当时计划喂母乳到孩子多大（包括添加辅食后）？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '1 个月',value: '1'},{ label: '2 个月',value: '2'},{ label: '3 个月',value: '3'},{ label: '4 个月',value: '4'},{ label: '6 个月',value: '5'},{ label: '9 个月',value: '6'},{ label: '12 个月',value: '7'},{ label: '18 个月',value: '6'},{ label: '24 个月',value: '9'},{ label: '没计划，能喂多久就多久',value: '10'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">为什么选择混合喂养？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '担心奶水不足',value: '1'},{ label: '产后返岗',value: '2'},{ label: '身体状况不佳',value: '3'},{ label: '周围朋友/同事都是混合喂养',value: '4'},{ label: '母乳喂养好，配方粉也不错',value: '5'},{ label: '其他',value: '6'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">为什么只喂配方奶？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '担心母乳喂养导致乳房/身材走样',value: '1'},{ label: '既往不顺利的哺乳经历',value: '2'},{ label: '不愿意在公共场所哺乳',value: '3'},{ label: '产后返岗',value: '4'},{ label: '配方粉也很好',value: '5'},{ label: '身体状况不佳',value: '6'},{ label: '其他',value: '7'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('10','9')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 10 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('10','11','requrePage9')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page11-->
+            <div class="pag11" v-if="page11">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">43. 否与丈夫讨论过喂养方式？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        title=""
+                                        class="requrePage11" data-name="Zjbbwt"
+                                        v-model="dataList.Zjbbwt"
+                                        :options="[{ label: '讨论过',value: 'a'},{ label: '没讨论过',value: 'b'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">当时您丈夫倾向于选择哪种喂养方式？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '纯母乳喂养',value: '1'},{ label: '混合喂养',value: '2'},{ label: '人工喂养',value: '3'},{ label: '没有倾向和偏好',value: '4'},{ label: '不知道',value: '5'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>E. 最小孩子的母乳喂养实际情况<span style="color:#999999;font-size:16px;">(现在我问一下你是怎么喂自己孩子的)</span></h3>
+                            <div class="form-list">
+                               <p class="form-p1">44. 孩子喂过母乳吗？（包括喂挤出的母乳和其他母亲的乳汁。只要喂过母乳就可以，喂多长时间没有关系。）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">为什么没给孩子喂母乳？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '我之前就没打算喂母乳',value: '1'},{ label: '我没奶/奶水不够',value: '2'},{ label: '我生病或身体状况不允许',value: '3'},{ label: '孩子当时生病/住在新生儿监护室/接受特殊护理',value: '4'},{ label: '孩子对母乳不感兴趣/拒绝乳头/拒绝吸吮乳头',value: '5'},{ label: '其他原因',value: '6'},{ label: '不记得了/不知道',value: '7'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">45. 产后您第一次让孩子直接吸吮乳头吃母乳是什么时候？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage5"
+                                        pickContent="clot8"
+                                        defaultValue="1"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '产后 30 分钟之内',value: '1'},{ label: '产后 1 小时内',value: '2'},{ label: '产后 24 小时内(产后__小时)',value: '3',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'小时'},
+                                        { label: '产后 24 小时后',value: '4'},{ label: '住院期间没让孩子接触乳头',value: '5'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">为什么住院期间没让孩子接触乳头？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '孩子当时生病/住在新生儿监护室/接受特殊护理',value: '1'},{ label: '我生病/太累了',value: '2'},{ label: '我当时没下奶',value: '3'},{ label: '我当时打算把母乳吸出来给孩子喝',value: '4'},{ label: '其他原因',value: '5'},{ label: '不记得了',value: '6'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">46. 孩子出生后吃的第一口食物是？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage10"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '母乳',value: '1'},{ label: '配方奶',value: '2'},{ label: '白开水',value: '3'},{ label: '糖水/葡萄糖水',value: '4'},{ label: '牛奶、果汁饮料等',value: '5'},{ label: '其他食物',value: '6'},{ label: '不知道/ 不记得了',value: '7'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('11','10')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 11 </span>
+                            <span>/</span>
+                            <span>5</span>
+                            </div>
+                            <button  class="btn" @click="changePage('11','12','requrePage9')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -737,7 +1082,11 @@
                 page4:false,
                 page5:false,
                 page6:false,
-                page7:true,
+                page7:false,
+                page8:false,
+                page9:false,
+                page10:false,
+                page11:true,
                 slotContent1: { 
                     columns: 2,
                     default: [{text: '', value: ''},{text: '', value: ''}],
