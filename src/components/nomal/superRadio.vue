@@ -241,11 +241,12 @@ export default {
   .mint-radiolist-label{position: relative;}
   .otherInput{height: 50px;line-height: 50px;font-size: 28px;border-bottom:1px solid #E4E4E4;padding-left: 10px;position:absolute;right:0;top:0;}
   .spanRit{display:block;background:#E4E4E4; cursor: pointer;color: #666;padding: 10px 10px;display: flex;padding-left: 30px;font-size: 30px;margin-top: 30px;border-bottom: 1px dashed;border-top: 1px dashed }
-  .spanRit span{flex: 1;}
+  .spanRit span{flex: 1;height: 50px;line-height: 50px;}
   .light-icon-right img{
       width: 17px;
       height: 33px;
       padding-right: 0px;
       display: inline-block;
+      padding-top: 4px;
   }
 </style>

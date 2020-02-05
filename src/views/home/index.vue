@@ -1053,6 +1053,973 @@
                     </div>
                 </div>
             </div>
+            <!--page12-->
+            <div class="pag12" v-if="page12">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">47. 住院期间孩子吃过哪些以下哪些食物？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '母乳',value: '1'},{ label: '配方奶',value: '2'},{ label: '白开水/糖水',value: '3'}, 
+                                        { label: '牛奶、果汁饮料等',value: '4'},{ label: '其他食物',value: '5',
+                                        other:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请输入',icon:''},
+                                       { label: '不知道/ 不记得了',value: '6'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">48. 为什么住院期间孩子吃了母乳之外的其他食物？（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '母乳量不足 (如孩子饿/吃不饱/哭吵/烦躁、没完全下奶、孩子体重下降明显/低血糖)',value: '1'},{ label: '乳头含接问题 (如孩子无法含接乳头/拒绝含接乳头/对母乳不感兴趣、孩子不吸吮/无效吸吮、乳头疼痛/皲裂/内翻)',value: '2'},
+                                        { label: '孩子生病了 (如黄疸、住新生儿监护室/接受特殊护理、低血糖、脱水、心脏疾病、胎粪吸入、感染等)',value: '3'},
+                                        { label: '我当时非常疲劳/产后恢复所需/生病了 (如剖宫产后需要恢复、产后出血、耻骨分离、产后抑郁等)',value: '4'},
+                                        { label: '医护人员的建议 (如发现孩子喂养不良后建议添加；因我产后服药而要求我暂停母乳；告诉我产后初期母乳少故推荐加配方奶)',value: '5'},
+                                        { label: '家属（配偶/父母）的建议 (如认为分娩后初期母乳少不够孩子吃；认为配方奶比母奶更有营养；担心我产后太疲劳)',value: '6'},
+                                        { label: '之前就有计划混合喂养',value: '7'},
+                                        { label: '认为配方奶营养更好',value: '8'},
+                                        { label: '希望孩子适应奶瓶/不要过于依赖乳头',value: '9'},
+                                        { label: '其他',value: '10'},
+                                        { label: '不知道/ 不记得了',value: '11'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <h3>现在，我想问一下，出院后您出院后是怎么喂孩子的</h3>
+                            <div class="form-list">
+                               <p class="form-p1">49. 您的孩子还吃母乳吗？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '吃',value: '1'},{ label: '不吃了',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">如果您的孩子不再吃母乳了，为什么给孩子断奶了？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '我没奶了',value: '1'},{ label: '母乳没营养了',value: '2'},
+                                        { label: '孩子大了/不再需要母乳了',value: '3'},
+                                        { label: '孩子出牙了/咬乳头',value: '4'},
+                                        { label: '孩子对母乳不感兴趣了/自己断奶了',value: '5'},
+                                        { label: '孩子生病',value: '6'},
+                                        { label: '我生病',value: '7'},
+                                        { label: '我太累了，坚持不下去了/太忙了/没时间/焦虑/压力太大',value: '8'},
+                                        { label: '我返回工作岗位/学校学习、工作/学习场所没地方没条件吸奶和储存母乳、',value: '9'},
+                                        { label: '我希望家人参与和承担喂养任务',value: '10'},
+                                        { label: '医护人员建议我断奶',value: '11'},
+                                        { label: '家人（配偶/父母）建议我断奶',value: '12'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <h3>接下来，我想了解一下昨天一天（ 包括白天和夜里 ）您怎么喂孩子的</h3>
+                            <div class="form-list">
+                               <p class="form-p1">50. 孩子昨天一天（包括白天和夜里）喂过母乳吗？（包括喂挤出的母乳和其他母亲的乳汁。只要喂过母乳就可以，喂多长时间没有关系。）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage12"
+                                        pickContent="clot6"
+                                        defaultValue="6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是—>过去 24 小时内喂了___ 次',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'次'},
+                                        { label: '否。还没有断奶，只是昨天没有吃',value: '2'},{ label: '否，已经断奶',value: '3'},{ label: '不知道',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>接下来，我想了解一下过去 24 小时您最小的孩子吃母乳之外食物 的情况</h3>
+                            <h3>51.我想了解昨天一天（包括白天和夜里）孩子吃的维生素、药物和液体。孩子都吃了什么？（逐项朗读，逐项记录）</h3>
+                            <div class="form-list">
+                               <p class="form-p1">51.1维生素/矿物质补充剂或药物<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.2口服补液盐（当地名称）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.3白开水/矿泉水/糖水/茶水<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.4婴儿配方奶<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage12"
+                                        pickContent="clot6"
+                                        defaultValue="6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是,______次 不知道几次填 99',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'次'},
+                                        { label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.5奶粉或新鲜的动物奶（如牛奶、羊奶）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage12"
+                                        pickContent="clot6"
+                                        defaultValue="6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是,______次 不知道几次填 99',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'次'},
+                                        { label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.6果汁或果汁饮料<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.7汤（肉汤、菜汤、米汤）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.8酸奶（需要冷藏的）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                    <super-radio
+                                        class="requrePage12"
+                                        pickContent="clot6"
+                                        defaultValue="6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是,______次 不知道几次填 99',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'次'},
+                                        { label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.10 乳酸饮料（爽歪歪、娃哈哈）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">51.11其他液体<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage12"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('11','10')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 12 </span>
+                            <span>/</span>
+                            <span>15</span>
+                            </div>
+                            <button  class="btn" @click="changePage('11','12','requrePage9')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page13-->
+            <div class="pag13" v-if="page13">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <h3>接下来，我想了解一下过去 24 小时您最小的孩子吃固体 / 半固体食物的情况</h3>
+                            <div class="form-list">
+                               <p class="form-p1">52. 孩子吃过固体、半固体或糊状食物吗？（包括如面条馒头、饼干/面包、肉、水果蔬菜鸡蛋、稠的粥等这类的食物不包括水、汤、饮料等液体吗<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        pickContent="clot8"
+                                        defaultValue="6"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '是，吃过.__ 月龄时第一次吃 （不满 1 月填0）',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'次'},
+                                        { label: '否，还没有给孩子喂过任何固体半固体食物',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">为什么在孩子不满 6 个月时就给他/她吃食物（仅限于 6 个月内母乳喂养或配方奶喂养孩子添加食物的情况）?（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '母乳量不足',value: '1'},{ label: '补充母乳的营养',value: '2'},
+                                        { label: '孩子长大了',value: '3'},
+                                        { label: '孩子能用奶瓶喝奶/能吃固体/半固体食物了',value: '4'},
+                                        { label: '孩子对食物感兴趣',value: '5'},
+                                        { label: '孩子吃了食物夜里能睡得更长',value: '6'},
+                                        { label: '我生病',value: '7'},
+                                        { label: '我太累了，坚持不下去了/太忙了/没时间/焦虑/压力太大',value: '8'},
+                                        { label: '我返回工作岗位/学校学习、工作/学习场所没地方吸奶和储存母乳',value: '9'},
+                                        { label: '我希望家人参与和承担喂养任务',value: '10'},
+                                        { label: '医护人员建议我添加食物',value: '11'},
+                                        { label: '家人（配偶/父母）建议我添加食物',value: '11'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">53. 孩子昨天一天吃过几顿固体、半固体或糊状食物（包括（如面条馒头、饼干/面包、肉、水果蔬菜鸡蛋、稠的粥，果泥，肉泥等这类的食物；少量零食不算一顿，如一两口的食物。）但不包括水、汤、饮料等液体）？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        pickContent="clot9"
+                                        defaultValue="2"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '____次（如果>=7次，填7次）',value: '1',
+                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'个月'},
+                                        { label: '不知道',value: '2'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>54. 我想了解昨天一天（包括白天和夜里）孩子吃的所有食物，包括在家和在外面吃的(逐项朗读，逐项记录）</h3>
+                            <div class="form-list">
+                               <p class="form-p1">54.1面包、米饭、面条、馒头、馍馍或其他谷类食物（不包括谷类稀粥）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.2南瓜、胡萝卜、红薯等内部是黄色、红色或橙色的食物<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.3白薯、土豆、山药或任何其他根茎类食物<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.4任何深绿色叶菜（如菠菜、油菜、油麦菜）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.5柑橘、西红柿、山楂、柿子、芒果、木瓜等（举例当地富含维生素 A 的水果）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.6任何其他新鲜水果或蔬菜<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.7肝、肾、心或其他脏器<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.8任何肉类的瘦肉部分，如牛肉、猪肉、羊肉、鸡肉、鸭肉等<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.9.任何肉类的肥肉部分，如猪肥肉<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.10 蛋类<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.11鲜鱼或干鱼、海产品<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.12任何豆类比如大豆、芸豆等或坚果类食物比如花生、核桃。（包括豆制品和坚果制品）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.13奶酪等其他固体/半固体奶制品，如老酸奶（需要冷藏的）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.14任何油、脂肪、黄油或其制品<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.15任何甜食，如巧克力、糖果、蛋糕、饼干等<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.16调味品（盐、酱油、腐乳、味精、花椒、大料、辣椒、茴香）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.17 火腿肠、香肠、烟熏肉类<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '是',value: '1'},{ label: '否',value: '2'},{ label: '不知道',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">54.18其他：请记录上表未列出的母亲提到的其他食物<span class="isRed Jtnsr">*</span></p>
+                                <drage-input v-model="dataList.ao" :keyValue.sync="dataList.ao"
+                                        type="text" :required="true" placeholder="请输入未列出的食物"
+                                    :disabled="false"  label="其他" class="requrePage13" data-name="DistrictNo">
+                                </drage-input>
+                            </div>
+                            <h3>F.  孕期到产后获得的母乳喂养信息与支持</h3>
+                            <h3>接下来，我想了解一下您获得的母乳喂养相关信息和支持</h3>
+                            <h3>55.  在您孕期产检时，医护人员是否为您提供了如下方面的信息和支持？请根据实际情况在下列表格中勾选对应的选项？</h3>
+                            <div class="form-list">
+                               <p class="form-p1">55.1帮助您决定孩子如何喂养的信息<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.2帮教您如何进行母乳喂养的操作示范和演示<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.3告知您如何应对母乳喂养时可能遇到的困难和挑战<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.4帮助您相信自己完全有能力进行母乳喂养，树立自信<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.5告知您产后即刻进行母婴皮肤接触的重要性<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.6告知您保持母婴同室的重要性<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.7告知您在母乳喂养最初 6 个月，纯母乳喂养不需要给孩子加水。<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.8告知您在母乳喂养最初 6 个月，给与孩子水、配方奶或其他辅食的危害<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage13"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">55.9其他信息和支持，请注明：<span class="isRed Jtnsr">*</span></p>
+                                <drage-input v-model="dataList.ao" :keyValue.sync="dataList.ao"
+                                        type="text" :required="true" placeholder="请输入"
+                                    :disabled="false"  label="其他" class="requrePage13" data-name="DistrictNo">
+                                </drage-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('12','11')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 13 </span>
+                            <span>/</span>
+                            <span>15</span>
+                            </div>
+                            <button  class="btn" @click="changePage('12','13','requrePage13')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page14-->
+            <div class="pag14" v-if="page14">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">56. 总体而言，您是否满意孕期产检时医护人员提供的有关母乳喂养的信息和支持？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '满意',value: '1'},{ label: '不满意',value: '2'},{ label: '不记得了',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>57.在您分娩住院期间，医护人员（如产科医生、产科护士、助产士、新生儿科医生等）是否为您提供了如下方面的信息和支持？请根据实际情况在下列表格中勾选对应的选项？</h3>
+                            <div class="form-list">
+                               <p class="form-p1">57.1鼓励您产后立即进行母婴皮肤接触<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                           <div class="form-list">
+                               <p class="form-p1">57.2为您提供足够的有关母乳喂养体位和乳头含接的操作示范和演示<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.3至少有一次评估过您的母乳喂养过程或母乳喂养尝试<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.4指导您进行按需喂养以及如何控制每次哺乳的时间<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.5告知您如何根据孩子状态正确判断他/她已经吃饱了<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.6告知您在母乳喂养最初 6 个月， 纯母乳喂养不需要给孩子加水<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.7鼓励您进行纯母乳喂养，而不给孩子其他食物或液体，如配方奶<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.8针对您的需求为您提供母乳喂养指导<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.9帮助您应对在今后母乳喂养中可能遇到的困难和挑战<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.10帮助您相信自己完全有能力进行母乳喂养，树立自信<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">57.11针对您的需求为您提供母乳喂养指导<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage14"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                                <p class="form-p1">57.11其他信息和支持，请注明<span class="isRed Jtnsr">*</span></p>
+                                <drage-input v-model="dataList.ao" :keyValue.sync="dataList.ao"
+                                        type="text" :required="true" placeholder="请输入"
+                                    :disabled="false"  label="其他" class="requrePage14" data-name="DistrictNo">
+                                </drage-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('13','12')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 14 </span>
+                            <span>/</span>
+                            <span>15</span>
+                            </div>
+                            <button  class="btn" @click="changePage('13','14','requrePage14')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page15-->
+            <div class="pag15" v-if="page15">
+                <div class="center">
+                    <div class="zf-wrapper-mom">
+                        <div class="form-component">
+                            <div class="form-list">
+                               <p class="form-p1">58. 总体而言，您是否满意产后住院期间医护人员提供的有关母乳喂养的信息和支持？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '满意',value: '1'},{ label: '不满意',value: '2'},{ label: '不记得了',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <h3>59. 在您出院后至孩子满 6 个月，社区医护人员是否通过上门、电话、门诊等形式为您提供了如下方面的信息和支持？请根据实际情况在下列表格中勾选对应的选项？</h3>
+                            <div class="form-list">
+                               <p class="form-p1">59.1至少有一次评估过您的母乳喂养过程或母乳喂养尝试<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                           <div class="form-list">
+                               <p class="form-p1">59.2告知您如何判断孩子已经吃饱了<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">59.3告知您在母乳喂养最初 6 个月， 纯母乳喂养不需要给孩子加水<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">59.4帮助您应对母乳喂养中遇到的困难和挑战<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">59.5帮助您相信自己完全有能力进行母乳喂养，树立自信 <span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">59.6告诉您遇到喂养问题如何去哪里寻求帮助<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '完全不同意',value: '1'},{ label: '部分不同意',value: '2'},{ label: '部分同意',value: '3'},{ label: '完全同意',value: '4'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            
+                            <div class="form-list">
+                                <p class="form-p1">59.7其他信息和支持，请注明：<span class="isRed Jtnsr">*</span></p>
+                                <drage-input v-model="dataList.ao" :keyValue.sync="dataList.ao"
+                                        type="text" :required="true" placeholder="请输入"
+                                    :disabled="false"  label="其他" class="requrePage15" data-name="DistrictNo">
+                                </drage-input>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">60. 总体而言，您是否满意社区医护人员提供的有关母乳喂养的信息和支持？<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-radio
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsr"
+                                        v-model="dataList.Jtnsr"
+                                        :options="[{ label: '满意',value: '1'},{ label: '不满意',value: '2'},{ label: '不记得了',value: '3'}]">
+                                    </super-radio>
+                                </div>
+                            </div>
+                            <div class="form-list">
+                               <p class="form-p1">61.总体而言，从确诊怀孕到孩子出生后 6 个月，哪些人/哪些资源为您提供了最为有用的母乳喂养信息和支持（多选题）<span class="isRed Jtnsr">*</span></p>
+                               <div class="check-list"  >
+                                   <super-checklist
+                                        class="requrePage15"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                        title=""  data-name="Jtnsrw"
+                                        v-model="dataList.Jtnsrw"
+                                        :options="[{ label: '丈夫',value: '1'},{ label: '母亲/婆婆',value: '2'},{ label: '其他家庭成员',value: '3'}, 
+                                        { label: '朋友/同事',value: '4'},{ label: '医生',value: '5'}
+                                        ,{ label: '护士',value: '6'},
+                                        { label: '助产士',value: '7'},
+                                        { label: '社区医护人员',value: '8'},
+                                        { label: '母乳喂养门诊',value: '9'},
+                                        { label: '月嫂/开奶师/通乳师',value: '10'},
+                                        { label: '医院/社区等机构提供的孕期课程健康教育',value: '11'},
+                                        { label: '医院/医院/社区提供的书面/影像/声像资料',value: '12'},
+                                        { label: '网络/手机应用，请注明：',value: '13',
+                                        other:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请注明',icon:''},
+                                       { label: '营养师/注册营养师',value: '14'},{ label: '营养师/注册营养师',value: '15'}]">
+                                    </super-checklist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bottom-->
+                <div class="bottom">
+                    <div class= "pagination"> 
+                        <div class="pag-box">
+                            <button  class="btn" :disabled= "false"  @click="changePage('14','13')" :class= "{ disabledBtn: false }" >上一页</button>
+                            <div class= "pag-center">
+                            <span class= "num1"> 15 </span>
+                            <span>/</span>
+                            <span>15</span>
+                            </div>
+                            <button  class="btn" @click="changePage('14','15','requrePage15')" :class= "{ disabledBtn: false }"> 下一页</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -1076,7 +2043,7 @@
                     b:'',
                     as:'2年 10个月'
                 },
-                page1:false,
+                page1:true,
                 page2:false,
                 page3:false,
                 page4:false,
@@ -1086,7 +2053,11 @@
                 page8:false,
                 page9:false,
                 page10:false,
-                page11:true,
+                page11:false,
+                page12:false,
+                page13:false,
+                page14:false,
+                page15:false,
                 slotContent1: { 
                     columns: 2,
                     default: [{text: '', value: ''},{text: '', value: ''}],

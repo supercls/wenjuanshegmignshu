@@ -1,4 +1,4 @@
-export {clot1,clot2,clot3,clot4,clot5,clot6,clot7,clot8}
+export {clot1,clot2,clot3,clot4,clot5,clot6,clot7,clot8,clot9}
 
 let clot1 = []
 for(let i = 0; i<100;i++){
@@ -67,4 +67,13 @@ for(let i = 0; i<25;i++){
         value:i
     }
     clot8.push(obj)
+}
+
+let clot9 = []
+for(let i = 0; i<8;i++){
+    let obj = {
+        text:i,
+        value:i
+    }
+    clot9.push(obj)
 }

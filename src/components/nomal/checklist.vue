@@ -28,14 +28,6 @@
             && currentValue.indexOf(option.value)>-1" 
             >{{option.icon||''}}
         </span>
-        <input type="text" 
-          :placeholder="option.placeholder ||'请输入'"  
-          @change="changeInput(option.name,option.filed)" 
-          @click ="inputFocus"
-          v-model="option.filed" 
-          class="otherInput"  
-          v-if="option.other && currentValue.indexOf(option.value)>-1" 
-        >
         <span             
             v-if="option.picker && currentValue.indexOf(option.value)>-1"
             class="spanRit"
@@ -43,6 +35,15 @@
             {{option.filed || option.placeholder}}{{option.filed?option.icon:''}}
         </span>    
       </label>
+      <div v-if="option.other && currentValue.indexOf(option.value)>-1" class="spanRit">
+           <input type="text" 
+            :placeholder="option.placeholder ||'请输入'"  
+            @change="changeInput(option.name,option.filed)" 
+            @click ="inputFocus"
+            v-model="option.filed" 
+            class="spanInput"  
+          >
+      </div>
     </div>
     <!--临时选择器-->
     <vue-pickers
@@ -282,6 +283,8 @@ export default {
   }
   .mint-checklist-label{position: relative;}
   .otherInput{height: 50px;cursor: pointer; line-height: 50px;display:inline-block;font-size: 28px;padding-left: 10px;text-align: right;position: absolute;top:0;right: 100px;z-index: 9999;}
-  .spanRit{display: inline-block;cursor: pointer;float:right;padding: 3px 10px;}
+  .spanRit{display:block;background:#E4E4E4; cursor: pointer;color: #666;padding: 10px 10px;display: flex;padding-left: 30px;font-size: 30px;margin-top: 30px;border-bottom: 1px dashed;border-top: 1px dashed }
+  .spanRit span{flex: 1;}
   .icon-right{float: right;line-height: 1.8;}
+  .spanInput{padding-left: 20px;height: 50px;line-height: 50px;}
 </style>
