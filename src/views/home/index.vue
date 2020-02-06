@@ -1,6 +1,7 @@
 <template>
     <div class="zf-wrapper">
         <div class="qs-content mint-tab-container">
+            <button @click="subMot">提交</button>
             <div class="page1" v-if="page1">
                 <div class="top">
                     <p>亲爱的妈妈，</p>
@@ -14,17 +15,20 @@
                 <div class="center">
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
-                            <drage-input v-model="dataList.a" :keyValue.sync="dataList.a" :modelValue.sync="dataList.b"
-                                         typeItem="pickTwo" :required="true"
-                                        :disabled="true"  label="您所在的社区" class="requrePage1" data-name="DistrictNo">
+                            <p class="form-p1">您所在的社区<span class="isRed data1">*</span></p>
+                            <drage-input v-model="dataList.data1" :keyValue.sync="dataList.data1" :modelValue.sync="dataList.b"
+                                        @changeInput="changeInput(dataList.data1,'data1')"
+                                        typeItem="pickTwo"  placeholder="请选择所在社区"
+                                        :disabled="true"  label="" class="requrePage1" data-name="data1">
                             </drage-input>
                             <div class="form-list">
-                                <p class="form-p1">邀请您参与的医生<span class="isRed">*</span>(询问医生并选择)</p>
+                                <p class="form-p1">邀请您参与的医生(询问医生并选择)<span class="isRed Ysxm">*</span></p>
                                 <div class="check-list">
                                     <super-radio
                                         title=""
-                                        class="requrePage2" data-name="OrganType"
-                                        v-model="dataList.OrganType"
+                                        class="requrePage1" data-name="Ysxm"
+                                        @changeInput="changeInput(dataList.Ysxm,'Ysxm')"
+                                        v-model="dataList.Ysxm"
                                         :options="[{ label: '医生1',value: '1'},{ label: '医生2',value: '2'},{ label: ' 医生3',value: '3'}]">
                                     </super-radio>
                                 </div>
@@ -40,13 +44,12 @@
                             <div class= "pag-center">
                             <span class= "num1"> 1 </span>
                             <span>/</span>
-                            <span>5</span>
+                            <span>15</span>
                             </div>
                             <button  class="btn" @click="changePage('1','2','requrePage1')" :class= "{ disabledBtn: false }"> 下一页</button>
                         </div>
                     </div>
                 </div>
-            <button @click="subMot">提交</button>
             </div>
             <!--page2-->
             <div class="page2" v-if="page2">
@@ -117,7 +120,7 @@
                             <div class= "pag-center">
                             <span class= "num1"> 2 </span>
                             <span>/</span>
-                            <span>5</span>
+                            <span>15</span>
                             </div>
                             <button  class="btn" @click="changePage('2','3','requrePage2')" :class= "{ disabledBtn: false }"> 下一页</button>
                         </div>
@@ -131,62 +134,62 @@
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
                             <div class="form-list">
-                               <p class="form-p1">5. 您当前的就业情况:<span class="isRed Xl">*</span></p>
+                               <p class="form-p1">5. 您当前的就业情况:<span class="isRed Jyqk">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage3"
-                                        @changeInput="changeInput(dataList.Xl,'Xl')"
-                                        title=""  data-name="Xl"
-                                        v-model="dataList.Xl"
+                                        @changeInput="changeInput(dataList.Jyqk,'Jyqk')"
+                                        title=""  data-name="Jyqk"
+                                        v-model="dataList.Jyqk"
                                         :options="[{ label: '家庭主妇',value: '1'},{ label: '兼职工作',value: '2'},{ label: '全职工作',value: '3'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">6. 你的工作单位性质<span class="isRed Hyzk">*</span></p>
+                               <p class="form-p1">6. 你的工作单位性质<span class="isRed Gzdwxz">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage3"
-                                        @changeInput="changeInput(dataList.Hyzk,'Hyzk')"
-                                        title=""  data-name="Hyzk"
-                                        v-model="dataList.Hyzk"
+                                        @changeInput="changeInput(dataList.Gzdwxz,'Gzdwxz')"
+                                        title=""  data-name="Gzdwxz"
+                                        v-model="dataList.Gzdwxz"
                                         :options="[{ label: '国家公务人员（公务员或事业单位）',value: '1'},{ label: '国企',value: '2'},{ label: '外企',value: '3'},{ label: '私营企业',value: '4'},{ label: '个体经营',value: '5'},{ label: '其他',value: '6'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">7.您的民族<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">7.您的民族<span class="isRed Mz">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Mz,'Mz')"
+                                        title=""  data-name="Mz"
+                                        v-model="dataList.Mz"
                                         :options="[{ label: '汉族',value: '1'},{ label: '其他',value: '2'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">8. 您的户口所在地：<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">8. 您的户口所在地：<span class="isRed Hkszd">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Jtnsr,'Hkszd')"
+                                        title=""  data-name="Hkszd"
+                                        v-model="dataList.Hkszd"
                                         :options="[{ label: '上海',value: '1'},{ label: '其他',value: '2'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list"  style="margin-top:10px;">
-                                <p class="form-p1">9. 您已在沪居住的年限（按合计月数填写）<span class="isRed Csny">*</span></p>
+                                <p class="form-p1">9. 您已在沪居住的年限（按合计月数填写）<span class="isRed WZhjznx">*</span></p>
                                 <div class="check-list" style="padding:0">
                                     <drage-input class="requrePage3" 
-                                        data-name="Csny"  
-                                        v-model="dataList.as"  
-                                        :keyValue.sync="dataList.as"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        placeholder="请选择出生日期"
+                                        data-name="WZhjznx"  
+                                        v-model="dataList.WZhjznx"  
+                                        :keyValue.sync="dataList.WZhjznx"
+                                        @changeInput="changeInput(dataList.WZhjznx,'WZhjznx')"
+                                        placeholder="请选择合计年月"
                                         typeItem="pickeMore"
                                         :slotContent="slotContent1"
                                         :isTwo="true"
@@ -198,13 +201,13 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">10. 您的户口类型<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">10. 您的户口类型<span class="isRed Hklx">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Hklx,'Hklx')"
+                                        title=""  data-name="Hklx"
+                                        v-model="dataList.Hklx"
                                         :options="[{ label: '农业家庭户口',value: '1'},{ label: '非农家庭户口',value: '2'}]">
                                     </super-radio>
                                 </div>
@@ -220,7 +223,7 @@
                             <div class= "pag-center">
                             <span class= "num1"> 3 </span>
                             <span>/</span>
-                            <span>5</span>
+                            <span>15</span>
                             </div>
                             <button  class="btn" @click="changePage('3','4','requrePage3')" :class= "{ disabledBtn: false }"> 下一页</button>
                         </div>
@@ -233,37 +236,40 @@
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
                             <div class="form-list">
-                               <p class="form-p1">11. 您现在是否与老人一起住<span class="isRed Xl">*</span></p>
+                               <p class="form-p1">11. 您现在是否与老人一起住<span class="isRed Sfylryqz">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage4"
-                                        @changeInput="changeInput(dataList.Xl,'Xl')"
-                                        title=""  data-name="Xl"
-                                        v-model="dataList.Xl"
+                                        @changeInput="changeInput(dataList.Sfylryqz,'Sfylryqz')"
+                                        title=""  data-name="Sfylryqz"
+                                        v-model="dataList.Sfylryqz"
                                         :options="[{ label: '是的，长期一起住(>6 个月/年)',value: '1'},{ label: '是的，偶尔/短期一起住(≤6 个月/年)',value: '2'},{ label: '不，从来不一起住',value: '3'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">12. 您现在与哪些老人一起住（多选）<span class="isRed Hyzk">*</span></p>
+                               <p class="form-p1">12. 您现在与哪些老人一起住（多选）<span class="isRed Ynxlryqz">*</span></p>
                                <div class="check-list"  >
                                     <super-checklist
                                         title=""
-                                        class="requrePage4 moreCheck" data-name="Zjbbwt"   data-next="Zjbbwt2"  data-count="9"
-                                        v-model="dataList.Zjbbwt"
+                                        class="requrePage4 moreCheck" 
+                                        @changeInput="changeInput(dataList.Ynxlryqz,'Ynxlryqz')"
+                                        data-name="Ynxlryqz"
+                                        v-model="dataList.Ynxlryqz"
                                         :options="[{ label: '自己母亲',value: '1'},{ label: '自己父亲',value: '2'},{ label: '婆婆 ',value: '3'},{ label: '公公 ',value: '4'},{ label: '其他人 ',value: '5'}]">
                                     </super-checklist>
                                 </div>
                             </div>
                             <h3>B. 您最近一次的分娩信息<span style="color:#999999;font-size:16px;">(现在，我想问一下您最近一次的分娩情况)</span></h3>
                             <div class="form-list">
-                               <p class="form-p1">13. 您一共有几个孩子<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">13. 您一共有几个孩子<span class="isRed Ygyjghz">*</span></p>
                                <div class="check-list"  style="padding:0" >
                                     <drage-input 
-                                        v-model="dataList.Fqnl" 
-                                        :keyValue.sync="dataList.Fqnl"
+                                        v-model="dataList.Ygyjghz" 
+                                        :keyValue.sync="dataList.Ygyjghz"
+                                        @changeInput="changeInput(dataList.Ygyjghz,'Ygyjghz')"
                                         :iocnRight="true"  unit="个"
-                                        class="requrePage4" data-name="Fqnl"
+                                        class="requrePage4" data-name="Ygyjghz"
                                         :slotContent="slotContent2" 
                                         placeholder="请选择您孩子的数量"
                                         typeItem="pickeMore" 
@@ -273,13 +279,13 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">14. 此次分娩时间<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">14. 此次分娩时间<span class="isRed Ccfmsj">*</span></p>
                                <div class="check-list" style="padding:0">
-                                    <drage-input class="requrePage2" 
-                                        data-name="Csny"  
-                                        v-model="dataList.Csny"  
-                                        :keyValue.sync="dataList.Csny"
-                                        @changeInput="changeInput(dataList.Csny,'Csny')"
+                                    <drage-input class="requrePage4" 
+                                        data-name="Ccfmsj"  
+                                        v-model="dataList.Ccfmsj"  
+                                        :keyValue.sync="dataList.Ccfmsj"
+                                        @changeInput="changeInput(dataList.Ccfmsj,'Ccfmsj')"
                                         placeholder="请选择最近一次分娩时间"
                                         typeItem="date"
                                         :disabled="true"  
@@ -289,13 +295,13 @@
                                 </div>
                             </div>
                             <div class="form-list"  style="margin-top:10px;">
-                                <p class="form-p1">15. 您分娩时候的孕周<span class="isRed Csny">*</span></p>
+                                <p class="form-p1">15. 您分娩时候的孕周<span class="isRed Fmshdyz">*</span></p>
                                 <div class="check-list" style="padding:0">
-                                    <drage-input class="requrePage3" 
-                                        data-name="Csny"  
-                                        v-model="dataList.t"  
-                                        :keyValue.sync="dataList.t"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
+                                    <drage-input class="requrePage4" 
+                                        data-name="Fmshdyz"  
+                                        v-model="dataList.Fmshdyz"  
+                                        :keyValue.sync="dataList.Fmshdyz"
+                                        @changeInput="changeInput(dataList.Fmshdyz,'Fmshdyz')"
                                         placeholder="请选择您分娩时候的孕周"
                                         typeItem="pickeMore"
                                         :slotContent="slotContent3"
@@ -308,13 +314,13 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed Zxhzdyl">*</span></p>
                                <div class="check-list" style="padding:0">
                                     <drage-input class="requrePage4" 
-                                        data-name="Csny"  
-                                        v-model="dataList.Csny"  
-                                        :keyValue.sync="dataList.Csny"
-                                        @changeInput="changeInput(dataList.Csny,'Csny')"
+                                        data-name="Zxhzdyl"  
+                                        v-model="dataList.Zxhzdyl"  
+                                        :keyValue.sync="dataList.Zxhzdyl"
+                                        @changeInput="changeInput(dataList.Zxhzdyl,'Zxhzdyl')"
                                         placeholder="请选择出生日期"
                                         typeItem="date"
                                         :disabled="true"  
@@ -324,25 +330,25 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">17. 孩子的性别<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">17. 孩子的性别<span class="isRed Hzxb">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
-                                        class="requrePage3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        class="requrePage4"
+                                        @changeInput="changeInput(dataList.Hzxb,'Hzxb')"
+                                        title=""  data-name="Hzxb"
+                                        v-model="dataList.Hzxb"
                                         :options="[{ label: '男孩',value: '1'},{ label: '女孩',value: '2'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">18. 您的分娩方式<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">18. 您的分娩方式<span class="isRed Fmfs">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
-                                        class="requrePage3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        class="requrePage4"
+                                        @changeInput="changeInput(dataList.Fmfs,'Fmfs')"
+                                        title=""  data-name="Fmfs"
+                                        v-model="dataList.Fmfs"
                                         :options="[{ label: '（非无痛）阴道分娩',value: '1'},{ label: '无痛阴道分娩',value: '2'},{ label: '产钳/胎头吸引分娩',value: '3'},{ label: '剖宫产',value: '4'}]">
                                     </super-radio>
                                 </div>
@@ -358,7 +364,7 @@
                             <div class= "pag-center">
                             <span class= "num1"> 4 </span>
                             <span>/</span>
-                            <span>5</span>
+                            <span>15</span>
                             </div>
                             <button  class="btn" @click="changePage('4','5','requrePage4')" :class= "{ disabledBtn: false }"> 下一页</button>
                         </div>
@@ -371,12 +377,13 @@
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
                             <div class="form-list">
-                               <p class="form-p1">19. 孩子的出生体重<span class="isRed Xl">*</span></p>
+                               <p class="form-p1">19. 孩子的出生体重<span class="isRed Hzcstz">*</span></p>
                                <div class="check-list" style="padding:0">
                                     <drage-input 
                                         v-model="dataList.Hzcstz" 
                                         class="requrePage5" 
-                                        data-name="Hzcstz"  
+                                        data-name="Hzcstz"
+                                        @changeInput="changeInput(Hzcstz.Hzcstz,'Hzcstz')"
                                         isNum="4"
                                         placeholder="请输入您孩子的出生体重"
                                         :keyValue.sync="dataList.Hzcstz"  
@@ -388,14 +395,15 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">孩子的出生身长(cm)<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">孩子的出生身长(cm)<span class="isRed Hzcssc">*</span></p>
                                <div class="check-list"  style="padding:0" >
                                     <drage-input 
-                                        v-model="dataList.se" 
-                                        :keyValue.sync="dataList.se"
+                                        v-model="dataList.Hzcssc" 
+                                        :keyValue.sync="dataList.Hzcssc"
+                                        @changeInput="changeInput(dataList.Hzcssc,'Hzcssc')"
                                         :iocnRight="true"  unit="cm"
                                         class="requrePage5" 
-                                        data-name="Fqnl"
+                                        data-name="Hzcssc"
                                         :slotContent="slotContent4" 
                                         placeholder="请选择您孩子的出生身长"
                                         typeItem="pickeMore" 
@@ -405,14 +413,15 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">20. 此次分娩住院时长为(天）<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">20. 此次分娩住院时长为(天）<span class="isRed Fmzysc">*</span></p>
                                <div class="check-list"  style="padding:0" >
                                     <drage-input 
-                                        v-model="dataList.se" 
-                                        :keyValue.sync="dataList.se"
+                                        v-model="dataList.Fmzysc" 
+                                        :keyValue.sync="dataList.Fmzysc"
+                                        @changeInput="changeInput(dataList.Fmzysc,'Fmzysc')"
                                         :iocnRight="true"  unit="天"
                                         class="requrePage5" 
-                                        data-name="Fqnl"
+                                        data-name="Fmzysc"
                                         :slotContent="slotContent5" 
                                         placeholder="请选择此次分娩住院时长"
                                         typeItem="pickeMore" 
@@ -422,67 +431,67 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">21. 您是否计划产后返回工作岗位/学校学习?<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">21. 您是否计划产后返回工作岗位/学校学习?<span class="isRed Sfjhchgz">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage5"
                                         pickContent="clot6"
                                         defaultValue="3"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsrw"
-                                        v-model="dataList.Jtnsrw"
+                                        @changeInput="changeInput(dataList.Sfjhchgz,'Sfjhchgz')"
+                                        title=""  data-name="Sfjhchgz"
+                                        v-model="dataList.Sfjhchgz"
                                         :options="[{ label: '是的，而且已经恢复工作',value: '1'},{ label: '是的，计划产后______ 个月返回工作岗位/学校学习',value: '2',
-                                        picker:true,filed:dataList.Pybblxpdsj2,name:'dataList.Pybblxpdsj2',placeholder:'请选择',icon:'个月'},
+                                        picker:true,filed:dataList.Sfjhchgz2,name:'dataList.Sfjhchgz2',placeholder:'请选择',icon:'个月'},
                                         { label: '否',value: '3'},{ label: '不确定',value: '4'}]">
                                     </super-radio>
                                 </div>
                             </div>
                            
                             <div class="form-list">
-                               <p class="form-p1">22. 你的带薪产假时间是（包括周末以及节假日）<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">22. 你的带薪产假时间是（包括周末以及节假日）<span class="isRed Dxcjsj">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage5"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Dxcjsj,'Dxcjsj')"
+                                        title=""  data-name="Dxcjsj"
+                                        v-model="dataList.Dxcjsj"
                                         :options="[{ label: '低于 98 天',value: '1'},{ label: '98 天以上',value: '2'},{ label: '120以上',value: '3'},{ label: '180 天以上',value: '4'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">23. 您的单位会安排不少于 1 小时的哺乳时间吗（相关劳动保护规定）？<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">23. 您的单位会安排不少于 1 小时的哺乳时间吗（相关劳动保护规定）？<span class="isRed Dwhapprsjm">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage5"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Dwhapprsjm,'Dwhapprsjm')"
+                                        title=""  data-name="Dwhapprsjm"
+                                        v-model="dataList.Dwhapprsjm"
                                         :options="[{ label: '会',value: '1'},{ label: '不会',value: '2'},{ label: '不知道',value: '3'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">24. 您单位有母乳喂养室吗？<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">24. 您单位有母乳喂养室吗？<span class="isRed Dwymrwysm">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
                                         class="requrePage5"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Dwymrwysm,'Dwymrwysm')"
+                                        title=""  data-name="Dwymrwysm"
+                                        v-model="dataList.Dwymrwysm"
                                         :options="[{ label: '有',value: '1'},{ label: '没有',value: '2'},{ label: '不知道',value: '3'}]">
                                     </super-radio>
                                 </div>
                             </div>
                             <h3>C.既往母乳喂养经验 / 经历（在最小的孩子之前）<span style="color:#999999;font-size:16px;">( 接下来，我想了解一下您在生最小的宝宝之前的母乳喂养方面的经验 / 经历 )</span></h3>
                             <div class="form-list">
-                               <p class="form-p1">25. 您之前用母乳喂养过孩子吗？(指您最小的宝宝之前的孩子)<span class="isRed Jtnsr">*</span></p>
+                               <p class="form-p1">25. 您之前用母乳喂养过孩子吗？(指您最小的宝宝之前的孩子)<span class="isRed Zqymrwyghzm">*</span></p>
                                <div class="check-list">
                                     <super-radio
                                         class="requrePage5"
-                                        @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
-                                        title=""  data-name="Jtnsr"
-                                        v-model="dataList.Jtnsr"
+                                        @changeInput="changeInput(dataList.Zqymrwyghzm,'Zqymrwyghzm')"
+                                        title=""  data-name="Zqymrwyghzm"
+                                        v-model="dataList.Zqymrwyghzm"
                                         :options="[{ label: '有',value: '1'},{ label: '没有',value: '2'}]">
                                     </super-radio>
                                 </div>
@@ -498,7 +507,7 @@
                             <div class= "pag-center">
                             <span class= "num1"> 5 </span>
                             <span>/</span>
-                            <span>5</span>
+                            <span>15</span>
                             </div>
                             <button  class="btn" @click="changePage('5','6','requrePage5')" :class= "{ disabledBtn: false }"> 下一页</button>
                         </div>
@@ -2041,12 +2050,12 @@
                 dataList:{
                     a:'闵行区 七宝',
                     b:'',
-                    as:'2年 10个月'
                 },
-                page1:true,
+                checkObj:{},
+                page1:false,
                 page2:false,
                 page3:false,
-                page4:false,
+                page4:true,
                 page5:false,
                 page6:false,
                 page7:false,
@@ -2100,7 +2109,13 @@
                 console.log(this.dataList)
             },
             changeInput(val,item){
-                val ? document.querySelector(`.${item}`).innerHTML = "*" :''
+                try{  //只针对多选
+                    val.length==0 ? 
+                    document.querySelector(`.${item}`).innerHTML = `*<span style="padding-left:10px">此题必填</span>`
+                    : document.querySelector(`.${item}`).innerHTML = "*" 
+                }catch(e){
+                    console.log('warn')
+                }
             },
             changePage(before,next,pageName){  //分页
                 let isRequire=false
@@ -2108,11 +2123,8 @@
                 let innerHtmlArr=[];
                 for(let i=0;i<arrDom.length;i++){
                     console.log(arrDom[i])
-                    if( (!this.dataList[arrDom[i].getAttribute('data-name')]  
-                        || this.dataList[arrDom[i].getAttribute('data-name')].length==0)
-                        || ((this.dataList[arrDom[i].getAttribute('data-name')]||'').indexOf(arrDom[i].getAttribute('data-count')|| 'M')>-1
-                        && !this.dataList[arrDom[i].getAttribute('data-next')]))
-                        {
+                    if( (this.dataList[arrDom[i].getAttribute('data-name')] == undefined
+                        || this.dataList[arrDom[i].getAttribute('data-name')].length==0)){
                         innerHtmlArr.push(arrDom[i]) //获取dom数组 
                         isRequire=true
                     }
@@ -2130,8 +2142,10 @@
                 }    
                 let checkDom=document.querySelectorAll('.moreCheck')
                 for(let i=0;i<checkDom.length;i++){
+                    console.log()
                     this.checkObj[checkDom[i].getAttribute('data-name')]=(this.dataList[checkDom[i].getAttribute('data-name')] ||[""]).join(",")
                 }
+                console.log(9)
                 let pageBefore='page'+before;
                 let pageNext='page'+next;
                 this[pageBefore]=false;

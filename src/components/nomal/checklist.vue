@@ -186,6 +186,7 @@ export default {
     currentValue(val) {
       if (this.limit) val.pop();
       this.$emit('input', val);
+      this.$emit('changeInput',val)
     },
    
   }
