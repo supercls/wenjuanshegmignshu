@@ -28,11 +28,20 @@ const router = new VueRouter({           //滚动行为监测，返回是否回�
 	}
     }
 })
-
-let needRoot= ['User','login',]
 router.beforeEach((to,from,next) => {
     NProgress.start();
-    next()
+    console.log(store.getters)
+    if (store.getters.token) {
+        next()
+    }
+    else{
+        if (to.path === '/login') {
+            next()
+        } else {
+            next('/login')
+            NProgress.done()
+        }
+    }
 })
 router.afterEach((to,from,next) =>{
     if(to.meta.title){

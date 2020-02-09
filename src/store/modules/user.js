@@ -1,8 +1,8 @@
 import { login, logout } from '@/api/login'
-import { setToken,  getWxdata, setWxdata, getDstoken,setDstoken,} from '@/utils/auth'
+import { setToken,getToken, getWxdata, setWxdata, getDstoken,setDstoken,} from '@/utils/auth'
 const user = { //定义仓库数据，状态等
     state: {
-        token: 'PMZrj63slI/2jN+QY2Mob71fkS8Q2djxzhdXLgfkQA6E79/oltiyZwNgd5BAomb/',
+        token: getToken(),
         openId:getDstoken(),
         wxData:getWxdata(),
         isBack:false,
@@ -15,7 +15,6 @@ const user = { //定义仓库数据，状态等
         },
         SET_WXDATA: (state, wxData) => {
             state.wxData = wxData
-            console.log(wxData)
             setWxdata(wxData)
         },
         SET_USERID: (state, openId) => {

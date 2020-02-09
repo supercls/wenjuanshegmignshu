@@ -29,9 +29,7 @@ service.interceptors.request.use(config => {
     if (config.method === 'post') {
         config.data = qs.stringify(config.data);
     }
-    if (store.getters.token) {
-        config.headers['Authorization'] = "ticket " + 'PMZrj63slI/2jN+QY2Mob71fkS8Q2djxzhdXLgfkQA6E79/oltiyZwNgd5BAomb/' // 让每个请求携带自定义token 请根据实际情况自行修改
-    }
+    config.headers['Authorization'] = "ticket " + 'PMZrj63slI/2jN+QY2Mob71fkS8Q2djxzhdXLgfkQA6E79/oltiyZwNgd5BAomb/' // 让每个请求携带自定义token 请根据实际情况自行修改
     return config
 }, error => {
     console.log(error) // for debug

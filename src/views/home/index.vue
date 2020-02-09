@@ -2102,7 +2102,7 @@
                             <span>/</span>
                             <span>15</span>
                             </div>
-                            <button  class="btn" @click="changePage('15','14','requrePage15')"  :class= "{ disabledBtn: false }"> 提交</button>
+                            <button  class="btn" @click="changePage('15','16','requrePage15',true)"  :class= "{ disabledBtn: !hasReady }"> 提交</button>
                         </div>
                     </div>
                 </div>
@@ -2115,6 +2115,8 @@
     import superRadio from '@/components/nomal/superRadio'
     import * as slotList  from '@/utils/slotContent'
     import superChecklist from '@/components/nomal/checklist'
+    import {SaveMyQuestionair} from '@/api/user'
+    import {mapGetters} from 'vuex'
     //dom数据结构无需优化，需求变动太大，浪费时间，灵活运用
     export default{
         name:'母乳喂养调查问卷',
@@ -2131,7 +2133,12 @@
                     Zyqjhzcgnxsw:[],
                     Hzcggtswm2:''
                 },
+                hasReady:true,
                 checkObj:{},
+                storageData:{
+                    page:1,
+                    data:{}
+                },
                 page1:true,
                 page2:false,
                 page3:false,
@@ -2189,8 +2196,31 @@
                 deep:true
             }
         },
+        computed:{
+            ...mapGetters([
+                'token'
+            ])
+        },
         mounted(){
-           
+            let data = localStorage.getItem(this.token)
+            if(data){
+                try{
+                    let getData = JSON.parse(data || '{}')
+                    let page = getData.page || 'page1'
+                    this.dataList = getData.data
+                    this.page1 = false
+                    this[page] = true
+                    if(JSON.parse(data).isSend){  //数据缓存
+                        this.dataList = JSON.parse(localStorage.getItem(this.token))
+                        this.hasReady = false
+                        this.$messagebox.alert('您已经提交过问卷了，请勿重复提交')
+                        return false
+                    }
+                }catch(e){
+                    console.log(e)
+                }
+                
+            }
         },
         methods:{
             subMot(){
@@ -2198,20 +2228,20 @@
             },
             changeInput(val,item){
                 try{  //只针对多选
-                    val.length==0 ? 
+                    val.length == 0 ? 
                     document.querySelector(`.${item}`).innerHTML = `*<span style="padding-left:10px">此题必填</span>`
                     : document.querySelector(`.${item}`).innerHTML = "*" 
                 }catch(e){
                     console.log('warn')
                 }
             },
-            changePage(before,next,pageName){  //分页
-                let isRequire=false
-                let arrDom=document.querySelectorAll(`.${pageName}`);
-                let innerHtmlArr=[];
-                for(let i=0;i<arrDom.length;i++){
+            changePage(before,next,pageName,isSend){  //分页
+                let isRequire = false
+                let arrDom = document.querySelectorAll(`.${pageName}`);
+                let innerHtmlArr = [];
+                for(let i = 0;i < arrDom.length;i++){
                     if( (this.dataList[arrDom[i].getAttribute('data-name')] == undefined
-                        || this.dataList[arrDom[i].getAttribute('data-name')].length==0)
+                        || this.dataList[arrDom[i].getAttribute('data-name')].length ==0)
                         ||
                             (           //判断单选有其他必填项
                                 arrDom[i].getAttribute('data-other') != null
@@ -2237,16 +2267,43 @@
                     document.querySelector('.qs-content').scrollTop = innerHtmlArr[0].parentNode.parentNode.offsetTop
                     return false;
                 }    
-                let checkDom=document.querySelectorAll('.moreCheck')
-                for(let i=0;i<checkDom.length;i++){
+                let checkDom = document.querySelectorAll('.moreCheck')
+                for(let i = 0;i < checkDom.length;i++){
                     this.checkObj[checkDom[i].getAttribute('data-name')]
                         =(this.dataList[checkDom[i].getAttribute('data-name')] ||[""]).join(",")
                 }
-                let pageBefore='page'+before;
-                let pageNext='page'+next;
-                this[pageBefore]=false;
-                this[pageNext]=true;
-                document.querySelector('.qs-content').scrollTop=0  //翻页时候滚动到最顶部
+                if(isSend){
+                    if(!this.hasReady) return false
+                    this.$messagebox.confirm('问卷提交后无法修改是否继续提交？').then(action => {
+                        this.$indicator.open();
+                        SaveMyQuestionair({...this.dataList,...this.checkObj}).then(res =>{
+                            this.storageData.isSend = true
+                            localStorage.setItem(this.token,JSON.stringify(this.storageData))
+                            this.hasReady = false
+                            this.$toast({
+                                message:'提交成功，稍后请自行退出'
+                            })
+                            this.$indicator.close();
+                            WeixinJSBridge.call('closeWindow');
+                        }).catch(err =>{
+                            console.log(err)
+                            this.$indicator.close();
+                        })
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+                    return false
+                }
+                let pageBefore = 'page' + before;
+                let pageNext = 'page' + next;
+                this[pageBefore] = false;
+                this[pageNext] = true;
+                this.storageData = {
+                    page:pageNext,
+                    data:this.dataList
+                }
+                localStorage.setItem(this.token,JSON.stringify(this.storageData))
+                document.querySelector('.qs-content').scrollTop = 0  //翻页时候滚动到最顶部
             }
         }
     }

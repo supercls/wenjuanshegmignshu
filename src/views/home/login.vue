@@ -81,6 +81,8 @@
 				this.loading = true
 				MatchVerCode({...this.userObj}).then(res =>{
 					this.loading = false
+					localStorage.clear()  //清除所有缓存信息
+					this.$store.commit('SET_TOKEN',this.userObj.mobileTel)
 					this.$router.push({
                         path:'/questionNaire',
                         query:{

@@ -1,13 +1,4 @@
 import service from '@/utils/fetch.js'
-// 提交绑定数据
-export function SaveQuestionair_Hospital(data) { //医疗机构
-    return service({
-        url: '/Questionair/SaveQuestionair_Hospital',
-        method: 'post',
-        data
-    })
-}
-
 export function GetSzdq(data) { //获取地区
     return service({
         url: '/BreastFeedingQuestionair/GetSzdq',
@@ -37,5 +28,14 @@ export function MatchVerCode(data) { //匹配验证码
         url: '/BreastFeedingQuestionair/MatchVerCode',
         method: 'get',
         params:data
+    })
+}
+
+// 提交绑定数据
+export function SaveMyQuestionair(data) { 
+    return service({
+        url: '/BreastFeedingQuestionair/SaveMyQuestionair',
+        method: 'post',
+        data
     })
 }
