@@ -30,7 +30,6 @@ const router = new VueRouter({           //滚动行为监测，返回是否回�
 })
 router.beforeEach((to,from,next) => {
     NProgress.start();
-    console.log(store.getters)
     if (store.getters.token) {
         next()
     }

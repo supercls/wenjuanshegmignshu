@@ -314,13 +314,13 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed Zxhzdyl">*</span></p>
+                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed childMonth">*</span></p>
                                <div class="check-list" style="padding:0">
                                     <drage-input class="requrePage4" 
-                                        data-name="Zxhzdyl"  
-                                        v-model="dataList.Zxhzdyl"  
-                                        :keyValue.sync="dataList.Zxhzdyl"
-                                        @changeInput="changeInput(dataList.Zxhzdyl,'Zxhzdyl')"
+                                        data-name="childMonth"  
+                                        v-model="dataList.childMonth"  
+                                        :keyValue.sync="dataList.childMonth"
+                                        @changeInput="changeInput(dataList.childMonth,'childMonth')"
                                         placeholder="请选择出生日期"
                                         typeItem="date"
                                         :disabled="true"  
@@ -2117,6 +2117,7 @@
     import superChecklist from '@/components/nomal/checklist'
     import {SaveMyQuestionair} from '@/api/user'
     import {mapGetters} from 'vuex'
+    import {WeeksBetw,dateForm} from '@/utils/index'
     //dom数据结构无需优化，需求变动太大，浪费时间，灵活运用
     export default{
         name:'母乳喂养调查问卷',
@@ -2192,6 +2193,21 @@
             'dataList.Hzcggtswm2':{
                 handler(val){
                     console.log(val)
+                },
+                deep:true
+            },
+            'dataList.childMonth':{   //小孩月龄
+                handler(val){   
+                    let days  =WeeksBetw(dateForm(new Date()),val)
+                    this.dataList.Zxhzdyl = parseInt(days)/30
+                    if(this.dataList.Zxhzdyl > 24){
+                        this.$messagebox({
+                            title: '您不符合本次调查要求',
+                            message:'请确认孩子的月龄是否输入正确'
+                        })
+                        return 
+                    }
+                    console.log(Math.round(parseInt(days)/30))
                 },
                 deep:true
             }
@@ -2294,6 +2310,12 @@
                     })
                     return false
                 }
+                if(this.dataList.Zxhzdyl > 24){  //判断月龄
+                    WeixinJSBridge.call('closeWindow');
+                    this.$toast('您不符合本次调查要求')
+                    return false
+                }
+
                 let pageBefore = 'page' + before;
                 let pageNext = 'page' + next;
                 this[pageBefore] = false;
