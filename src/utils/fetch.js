@@ -6,22 +6,26 @@ import store from '../store'
 import { getToken } from '@/utils/auth'
 
 // 创建axios实例
-let httpBefore=''
+let httpL=''
+let version = ''
 if(window.location.href.indexOf('https')>=0){
-    httpBefore='https://'
+    httpL='https://'
 }
 else{
-    httpBefore='http://'
+    httpL='http://'
 }
-let httpName=httpBefore+window.location.host;
+let httpName=httpL+window.location.host;
 let BASE_API='http://localhost:1442/api';
-if(httpName.indexOf('localhost')==-1){
-    BASE_API=httpName+'/YYQ.API/V5.2.9/api/'   //版本需要随时修改
+if(httpName.indexOf('mzjksc.yystars.com')!='-1'){
+    version = '105/'
+}
+if(httpName.indexOf('localhost')=='-1'){
+     BASE_API=httpName+'/API/'+version+'api/'
 }
 Vue.prototype.BASE_API=BASE_API
 const service = axios.create({
     baseURL:BASE_API, // api的base_url
-    timeout: 15000, // 请求超时时间
+    timeout: 30000, // 请求超时时间
     headers: { 'content-type': 'application/x-www-form-urlencoded' }
 })
 // request拦截器

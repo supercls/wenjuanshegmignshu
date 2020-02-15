@@ -3,6 +3,7 @@ import { setToken,getToken, getWxdata, setWxdata, getDstoken,setDstoken,} from '
 const user = { //定义仓库数据，状态等
     state: {
         token: getToken(),
+        //token:'19999999999',
         openId:getDstoken(),
         wxData:getWxdata(),
         isBack:false,

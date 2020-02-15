@@ -1,7 +1,7 @@
 <template>
     <div class="zf-wrapper">
         <div class="qs-content mint-tab-container">
-            <button @click="subMot">提交</button>
+            <!-- <button @click="subMot">提交</button> -->
             <div class="page1" v-if="page1">
                 <div class="top">
                     <p>亲爱的妈妈，</p>
@@ -314,13 +314,13 @@
                                 </div>
                             </div>
                             <div class="form-list">
-                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed childMonth">*</span></p>
+                               <p class="form-p1">16. 您最小孩子的月龄<span class="isRed Zxhzdyl">*</span></p>
                                <div class="check-list" style="padding:0">
                                     <drage-input class="requrePage4" 
-                                        data-name="childMonth"  
-                                        v-model="dataList.childMonth"  
-                                        :keyValue.sync="dataList.childMonth"
-                                        @changeInput="changeInput(dataList.childMonth,'childMonth')"
+                                        data-name="Zxhzdyl"  
+                                        v-model="dataList.Zxhzdyl"  
+                                        :keyValue.sync="dataList.Zxhzdyl"
+                                        @changeInput="changeInput(dataList.Zxhzdyl,'Zxhzdyl')"
                                         placeholder="请选择出生日期"
                                         typeItem="date"
                                         :disabled="true"  
@@ -2190,24 +2190,22 @@
             superChecklist
         },
         watch:{
-            'dataList.Hzcggtswm2':{
-                handler(val){
-                    console.log(val)
-                },
-                deep:true
-            },
-            'dataList.childMonth':{   //小孩月龄
+            // 'dataList.Hzcggtswm2':{
+            //     handler(val){
+            //         console.log(val)
+            //     },
+            //     deep:true
+            // },
+            'dataList.Zxhzdyl':{   //小孩月龄
                 handler(val){   
                     let days  =WeeksBetw(dateForm(new Date()),val)
-                    this.dataList.Zxhzdyl = parseInt(days)/30
-                    if(this.dataList.Zxhzdyl > 24){
+                    if(parseInt(days)/30 > 24){
                         this.$messagebox({
                             title: '您不符合本次调查要求',
                             message:'请确认孩子的月龄是否输入正确'
                         })
                         return 
                     }
-                    console.log(Math.round(parseInt(days)/30))
                 },
                 deep:true
             }
@@ -2222,21 +2220,22 @@
             if(data){
                 try{
                     let getData = JSON.parse(data || '{}')
+                    this.storageData  = getData
                     let page = getData.page || 'page1'
-                    this.dataList = getData.data
+                   // this.dataList = getData.data
                     this.page1 = false
                     this[page] = true
                     if(JSON.parse(data).isSend){  //数据缓存
-                        this.dataList = JSON.parse(localStorage.getItem(this.token))
+                       // this.dataList = JSON.parse(localStorage.getItem(this.token)).data
                         this.hasReady = false
-                        this.$messagebox.alert('您已经提交过问卷了，请勿重复提交')
+                        this.$messagebox.alert('您已经提交过问卷了了了了了了，请勿重复提交')
                         return false
                     }
                 }catch(e){
                     console.log(e)
                 }
-                
             }
+            console.log(this.dataList)
         },
         methods:{
             subMot(){
@@ -2274,7 +2273,6 @@
                         arrDom[i].parentNode.parentNode.querySelector('.isRed').innerHTML = `*`
                     }
                 }
-                
                 if(isRequire){
                     for(let i = 0;i<innerHtmlArr.length;i++){
                         innerHtmlArr[i].parentNode.parentNode.querySelector('.isRed').innerHTML 
@@ -2292,6 +2290,9 @@
                     if(!this.hasReady) return false
                     this.$messagebox.confirm('问卷提交后无法修改是否继续提交？').then(action => {
                         this.$indicator.open();
+                        this.dataList.Dh = this.token
+                        this.dataList.Szdq = this.dataList.data1.split(' ')[0]
+                        this.dataList.Sq = this.dataList.data1.split(' ')[1]
                         SaveMyQuestionair({...this.dataList,...this.checkObj}).then(res =>{
                             this.storageData.isSend = true
                             localStorage.setItem(this.token,JSON.stringify(this.storageData))
@@ -2310,8 +2311,12 @@
                     })
                     return false
                 }
-                if(this.dataList.Zxhzdyl > 24){  //判断月龄
-                    WeixinJSBridge.call('closeWindow');
+                if(parseInt(WeeksBetw(dateForm(new Date()),this.dataList.Zxhzdyl))/30 > 24){  //判断月龄
+                     try{
+                         WeixinJSBridge.call('closeWindow');
+                    }catch(e){
+                        console.log(e)
+                    }
                     this.$toast('您不符合本次调查要求')
                     return false
                 }
