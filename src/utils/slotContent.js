@@ -61,7 +61,7 @@ for(let i = 0; i<31;i++){
 }
 
 let clot8 = []
-for(let i = 0; i<25;i++){
+for(let i = 0; i<24;i++){
     let obj = {
         text:i,
         value:i

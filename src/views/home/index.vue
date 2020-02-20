@@ -93,7 +93,7 @@
                                         @changeInput="changeInput(dataList.Hyzk,'Hyzk')"
                                         title=""  data-name="Hyzk"
                                         v-model="dataList.Hyzk"
-                                        :options="[{ label: '文盲',value: '1'},{ label: '小学',value: '2'},{ label: '初中',value: '3'},{ label: '高中/中专',value: '4'},{ label: '大专',value: '5'},{ label: '本科',value: '6'},{ label: '硕士及以上',value: '7'}]">
+                                        :options="[{ label: '已婚/与异性伴侣同居',value: '1'},{ label: '未婚/单身/离异',value: '2'},{ label: '不知道/拒绝回答',value: '3'}]">
                                     </super-radio>
                                 </div>
                             </div>
@@ -105,7 +105,8 @@
                                         @changeInput="changeInput(dataList.Jtnsr,'Jtnsr')"
                                         title=""  data-name="Jtnsr"
                                         v-model="dataList.Jtnsr"
-                                        :options="[{ label: '文盲',value: '1'},{ label: '小学',value: '2'},{ label: '初中',value: '3'},{ label: '高中/中专',value: '4'},{ label: '大专',value: '5'},{ label: '本科',value: '6'},{ label: '硕士及以上',value: '7'}]">
+                                        :options="[{ label: '<1 万',value: '1'},{ label: '1-3 万',value: '2'},{ label: '3-5 万',value: '3'},{ label: '5-10 万',value: '4'},{ label: '10-15 万',value: '5'},
+                                        { label: '15-30 万',value: '6'},{ label: '30-100 万',value: '7'},{ label: '100 万以上',value: '8'},{ label: '不知道/拒绝回答',value: '9'}]">
                                     </super-radio>
                                 </div>
                             </div>
@@ -608,7 +609,7 @@
                                     </super-radio>
                                 </div>
                             </div>
-                             <div class="form-list" v-if="dataList.Ddggmnfdyhxxm =='b'">
+                             <div class="form-list" v-if="dataList.Ddggmnfdyhxxm =='a'">
                                <p class="form-p1">您获得过购买奶粉的优惠方式的途径包括（多选题）<span class="isRed DdggmnfdyhxxmY">*</span></p>
                                <div class="check-list"  >
                                     <super-checklist
@@ -2115,7 +2116,7 @@
     import superRadio from '@/components/nomal/superRadio'
     import * as slotList  from '@/utils/slotContent'
     import superChecklist from '@/components/nomal/checklist'
-    import {SaveMyQuestionair} from '@/api/user'
+    import {SaveMyQuestionair,GetMyQuestionair} from '@/api/user'
     import {mapGetters} from 'vuex'
     import {WeeksBetw,dateForm} from '@/utils/index'
     //dom数据结构无需优化，需求变动太大，浪费时间，灵活运用
@@ -2168,7 +2169,7 @@
                 },
                 slotContent3: { 
                     columns: 2,
-                    default: [{text: '', value: ''},{text: '', value: ''}],
+                    default: [{text: '36周', value: '36周'},{text: '0天', value: '0天'}],
                     pData1:slotList.clot4,
                     pData2:slotList.clot5
                 },
@@ -2182,6 +2183,8 @@
                     default: [{text: '5', value: '5'}],
                     pData1:slotList.clot7
                 },
+                arrDate:['DdggmnfdyhxxmY','Ynxlryqz','MrwyknzxY','Nxtjhdgnfyh','YrgsnmrwyknzxY','Hzcshnfyhtj','HzcshmrwyzxY',
+                'Cmrwy','Hhwy','Rgwy','HzwgmrmN','Chdycxrt3','Zyqjhzcgnxsw','Wsmzyqjhzclqtsw','Ndhzhcmrm2','Hzcggtswm3','Nxrtglzyydzy']
             }
         },
         components:{
@@ -2222,24 +2225,44 @@
                     let getData = JSON.parse(data || '{}')
                     this.storageData  = getData
                     let page = getData.page || 'page1'
-                   // this.dataList = getData.data
+                    this.dataList = getData.data
                     this.page1 = false
                     this[page] = true
                     if(JSON.parse(data).isSend){  //数据缓存
-                       // this.dataList = JSON.parse(localStorage.getItem(this.token)).data
+                        this.dataList = JSON.parse(localStorage.getItem(this.token)).data
                         this.hasReady = false
-                        this.$messagebox.alert('您已经提交过问卷了了了了了了，请勿重复提交')
+                        this.$messagebox.alert('您已经提交过问卷了，请勿重复提交')
                         return false
                     }
                 }catch(e){
                     console.log(e)
                 }
             }
+            else{
+                this.getList()
+            }
             console.log(this.dataList)
         },
         methods:{
             subMot(){
                 console.log(this.dataList)
+            },
+            async getList(){
+                GetMyQuestionair({
+                    mobileTel:this.token
+                }).then(res =>{
+                    console.log(res)
+                    res.dtData.length>0 ? this.hasReady = false :''
+                    res.dtData.length>0 ? this.dataList = res.dtData[0] :''
+                    res.dtData.length>0 ? (this.dataList.data1 = res.dtData[0].Szdq + ' '+ res.dtData[0].Sq) :''
+                    for(let item of this.arrDate){
+                        if(res.dtData.length>0 && res.dtData[0][item]){
+                            this.dataList[item] = res.dtData[0][item].split(',')
+                        }
+                    }
+                }).catch(e =>{
+                    conso.log(e)
+                })
             },
             changeInput(val,item){
                 try{  //只针对多选
@@ -2286,6 +2309,7 @@
                     this.checkObj[checkDom[i].getAttribute('data-name')]
                         =(this.dataList[checkDom[i].getAttribute('data-name')] ||[""]).join(",")
                 }
+                console.log({...this.dataList,...this.checkObj})
                 if(isSend){
                     if(!this.hasReady) return false
                     this.$messagebox.confirm('问卷提交后无法修改是否继续提交？').then(action => {

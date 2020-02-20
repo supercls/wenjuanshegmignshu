@@ -31,6 +31,15 @@ export function MatchVerCode(data) { //匹配验证码
     })
 }
 
+// 获取数据
+export function GetMyQuestionair(data) { 
+    return service({
+        url: '/BreastFeedingQuestionair/GetMyQuestionair',
+        method: 'get',
+        params:data
+    })
+}
+
 // 提交绑定数据
 export function SaveMyQuestionair(data) { 
     return service({
