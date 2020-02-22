@@ -2,8 +2,7 @@ import { login, logout } from '@/api/login'
 import { setToken,getToken, getWxdata, setWxdata, getDstoken,setDstoken,} from '@/utils/auth'
 const user = { //定义仓库数据，状态等
     state: {
-       // token: getToken(),
-        token:'18356097769',
+        token: getToken(),
         openId:getDstoken(),
         wxData:getWxdata(),
         isBack:false,

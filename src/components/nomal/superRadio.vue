@@ -20,7 +20,7 @@
           v-if="option.picker && currentValue == option.value"
           class="spanRit"
           @click="showPicker(option.name,option)">
-          <span> {{(option.filed != undefined && option.filed!='') ? option.filed  : option.placeholder}}{{(option.filed != undefined && option.filed !='') ? option.icon:''}}</span>
+          <span> {{(option.filed != undefined && option.filed!='' || option.filed == '0') ? option.filed  : option.placeholder}}{{(option.filed != undefined && option.filed !='' || option.filed == '0') ? option.icon:''}}</span>
           <div class="light-icon-right">
                 <img src="../../assets/images/public/icon__zizhujiance@2x.png" alt="">
             </div>

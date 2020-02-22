@@ -61,6 +61,7 @@
 				this.imgSrc==img1? (this.imgSrc=img2,this.imgOnoff = true): (this.imgSrc=img1,this.imgOnoff= false)
             },
 			junmpUrl(){
+				console.log(0)
                 this.$router.push({
                     path:'/aggreenment'
                 })

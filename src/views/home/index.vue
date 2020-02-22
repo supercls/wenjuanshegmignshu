@@ -81,7 +81,7 @@
                                         @changeInput="changeInput(dataList.Xl,'Xl')"
                                         title=""  data-name="Xl"
                                         v-model="dataList.Xl"
-                                        :options="[{ label: '文盲',value: '1'},{ label: '小学',value: '2'},{ label: '初中',value: '3'},{ label: '高中/中专',value: '4'},{ label: '大专',value: '5'},{ label: '本科',value: '6'},{ label: '硕士及以上',value: '7'}]">
+                                        :options="[{ label: '高中以下',value: '1'},{ label: '高中毕业',value: '2'},{ label: '大专/本科',value: '3'},{ label: '硕士',value: '4'},{ label: ' 博士',value: '5'},{ label: '不知道/拒绝回答',value: '6'}]">
                                     </super-radio>
                                 </div>
                             </div>
@@ -350,7 +350,7 @@
                                         @changeInput="changeInput(dataList.Fmfs,'Fmfs')"
                                         title=""  data-name="Fmfs"
                                         v-model="dataList.Fmfs"
-                                        :options="[{ label: '（非无痛）阴道分娩',value: '1'},{ label: '无痛阴道分娩',value: '2'},{ label: '产钳/胎头吸引分娩',value: '3'},{ label: '剖宫产',value: '4'}]">
+                                        :options="[{ label: '阴道分娩（非无痛）',value: '1'},{ label: '无痛阴道分娩',value: '2'},{ label: '产钳/胎头吸引分娩',value: '3'},{ label: '剖宫产',value: '4'}]">
                                     </super-radio>
                                 </div>
                             </div>
@@ -378,7 +378,7 @@
                     <div class="zf-wrapper-mom">
                         <div class="form-component">
                             <div class="form-list">
-                               <p class="form-p1">19. 孩子的出生体重<span class="isRed Hzcstz">*</span></p>
+                               <p class="form-p1">19. 孩子的出生体重(g)<span class="isRed Hzcstz">*</span></p>
                                <div class="check-list" style="padding:0">
                                     <drage-input 
                                         v-model="dataList.Hzcstz" 
@@ -898,7 +898,7 @@
                                 </div>
                             </div>
                             <div class="form-list" v-if="dataList.Jdrhwyhz !='d' && dataList.Jdrhwyhz =='a'">
-                               <p class="form-p1">为什么 选择纯乳母喂养 ？（多选题）<span class="isRed Cmrwy">*</span></p>
+                               <p class="form-p1">为什么选择纯母乳喂养 ？（多选题）<span class="isRed Cmrwy">*</span></p>
                                <div class="check-list"  >
                                    <super-checklist
                                         class="requrePage10 moreCheck"
@@ -929,7 +929,7 @@
                                         @changeInput="changeInput(dataList.Cmrwy3,'Cmrwy3')"
                                         title=""  data-name="Cmrwy3"
                                         v-model="dataList.Cmrwy3"
-                                        :options="[{ label: '1 个月',value: '1'},{ label: '2 个月',value: '2'},{ label: '3 个月',value: '3'},{ label: '4 个月',value: '4'},{ label: '6 个月',value: '5'},{ label: '9 个月',value: '6'},{ label: '12 个月',value: '7'},{ label: '18 个月',value: '6'},{ label: '24 个月',value: '9'},{ label: '没计划，能喂多久就多久',value: '10'}]">
+                                        :options="[{ label: '1 个月',value: '1'},{ label: '2 个月',value: '2'},{ label: '3 个月',value: '3'},{ label: '4 个月',value: '4'},{ label: '6 个月',value: '5'},{ label: '9 个月',value: '6'},{ label: '12 个月',value: '7'},{ label: '18 个月',value: '8'},{ label: '24 个月',value: '9'},{ label: '没计划，能喂多久就多久',value: '10'}]">
                                     </super-radio>
                                 </div>
                             </div>
@@ -1029,7 +1029,7 @@
                                     </super-checklist>
                                 </div>
                             </div>
-                            <div class="form-list">
+                            <div class="form-list" v-if="dataList.Hzwgmrm !='2'">
                                <p class="form-p1">45. 产后您第一次让孩子直接吸吮乳头吃母乳是什么时候？<span class="isRed Chdycxrt">*</span></p>
                                <div class="check-list"  >
                                     <super-radio
@@ -1047,7 +1047,7 @@
                                     </super-radio>
                                 </div>
                             </div>
-                            <div class="form-list">
+                            <div class="form-list" v-if="dataList.Hzwgmrm !='2'">
                                <p class="form-p1">为什么住院期间没让孩子接触乳头？<span class="isRed Chdycxrt3">*</span></p>
                                <div class="check-list"  >
                                    <super-checklist
@@ -1409,7 +1409,7 @@
                                         { label: '我返回工作岗位/学校学习、工作/学习场所没地方吸奶和储存母乳',value: '9'},
                                         { label: '我希望家人参与和承担喂养任务',value: '10'},
                                         { label: '医护人员建议我添加食物',value: '11'},
-                                        { label: '家人（配偶/父母）建议我添加食物',value: '11'}]">
+                                        { label: '家人（配偶/父母）建议我添加食物',value: '12'}]">
                                     </super-checklist>
                                 </div>
                             </div>
@@ -2086,7 +2086,7 @@
                                         { label: '医院/医院/社区提供的书面/影像/声像资料',value: '12'},
                                         { label: '网络/手机应用，请注明：',value: '13',
                                         other:true,filed:dataList.Nxrtglzyydzy2,name:'dataList.Nxrtglzyydzy2',placeholder:'请注明',icon:''},
-                                       { label: '营养师/注册营养师',value: '14'},{ label: '营养师/注册营养师',value: '15'}]">
+                                       { label: '营养师/注册营养师',value: '14'},{ label: '营养师/注册营养师',value: '15'},{ label: '其他',value: '16'}]">
                                     </super-checklist>
                                 </div>
                             </div>
@@ -2158,7 +2158,7 @@
                 page15:false,
                 slotContent1: { 
                     columns: 2,
-                    default: [{text: '', value: ''},{text: '', value: ''}],
+                    default: [{text: '1年', value: '1年'},{text: '0个月', value: '0个月'}],
                     pData1:slotList.clot1,
                     pData2:slotList.clot2
                 },
@@ -2231,7 +2231,7 @@
                     if(JSON.parse(data).isSend){  //数据缓存
                         this.dataList = JSON.parse(localStorage.getItem(this.token)).data
                         this.hasReady = false
-                        this.$messagebox.alert('您已经提交过问卷了，请勿重复提交')
+                        this.$messagebox.alert(`您已经提交过问卷了<br>请勿重复提交`)
                         return false
                     }
                 }catch(e){
@@ -2249,7 +2249,7 @@
             },
             async getList(){
                 GetMyQuestionair({
-                    mobileTel:this.token
+                    mobileTel:btoa(this.token)
                 }).then(res =>{
                     console.log(res)
                     res.dtData.length>0 ? this.hasReady = false :''
@@ -2312,9 +2312,9 @@
                 console.log({...this.dataList,...this.checkObj})
                 if(isSend){
                     if(!this.hasReady) return false
-                    this.$messagebox.confirm('问卷提交后无法修改是否继续提交？').then(action => {
+                    this.$messagebox.confirm(`问卷提交后无法修改<br>是否继续提交？`).then(action => {
                         this.$indicator.open();
-                        this.dataList.Dh = this.token
+                        this.dataList.Dh = btoa(this.token)
                         this.dataList.Szdq = this.dataList.data1.split(' ')[0]
                         this.dataList.Sq = this.dataList.data1.split(' ')[1]
                         SaveMyQuestionair({...this.dataList,...this.checkObj}).then(res =>{
@@ -2419,6 +2419,7 @@
     .form-p1{
         font-size: 32px;
         color: #333;
+        font-weight: 700;
         margin:20px 0  20px 0;
         span{font-size: 28px;color: #999}
     }
