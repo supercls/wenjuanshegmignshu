@@ -2130,8 +2130,7 @@
         data(){
             return{
                 dataList:{
-                    a:'闵行区 七宝',
-                    b:'',
+
                     Zyqjhzcgnxsw:[],
                     Hzcggtswm2:''
                 },
@@ -2193,13 +2192,7 @@
             superChecklist
         },
         watch:{
-            // 'dataList.Hzcggtswm2':{
-            //     handler(val){
-            //         console.log(val)
-            //     },
-            //     deep:true
-            // },
-            'dataList.Zxhzdyl':{   //小孩月龄
+            'dataList.Zxhzdyl':{ 
                 handler(val){   
                     let days  =WeeksBetw(dateForm(new Date()),val)
                     if(parseInt(days)/30 > 24){
@@ -2220,6 +2213,7 @@
         },
         mounted(){
             let data = localStorage.getItem(this.token)
+            console.log(JSON.parse(data))
             if(data){
                 try{
                     let getData = JSON.parse(data || '{}')
@@ -2228,10 +2222,10 @@
                     this.dataList = getData.data
                     this.page1 = false
                     this[page] = true
-                    if(JSON.parse(data).isSend){  //数据缓存
+                    if(JSON.parse(data).isSend){ 
                         this.dataList = JSON.parse(localStorage.getItem(this.token)).data
                         this.hasReady = false
-                        this.$messagebox.alert(`您已经提交过问卷了<br>请勿重复提交`)
+                        this.$messagebox.alert(`问卷已结束<br>感谢您的参与！`)
                         return false
                     }
                 }catch(e){
@@ -2265,7 +2259,7 @@
                 })
             },
             changeInput(val,item){
-                try{  //只针对多选
+                try{  
                     val.length == 0 ? 
                     document.querySelector(`.${item}`).innerHTML = `*<span style="padding-left:10px">此题必填</span>`
                     : document.querySelector(`.${item}`).innerHTML = "*" 
@@ -2309,7 +2303,6 @@
                     this.checkObj[checkDom[i].getAttribute('data-name')]
                         =(this.dataList[checkDom[i].getAttribute('data-name')] ||[""]).join(",")
                 }
-                console.log({...this.dataList,...this.checkObj})
                 if(isSend){
                     if(!this.hasReady) return false
                     this.$messagebox.confirm(`问卷提交后无法修改<br>是否继续提交？`).then(action => {
@@ -2335,7 +2328,7 @@
                     })
                     return false
                 }
-                if(parseInt(WeeksBetw(dateForm(new Date()),this.dataList.Zxhzdyl))/30 > 24){  //判断月龄
+                if(parseInt(WeeksBetw(dateForm(new Date()),this.dataList.Zxhzdyl))/30 > 24){ 
                      try{
                          WeixinJSBridge.call('closeWindow');
                     }catch(e){
@@ -2349,12 +2342,10 @@
                 let pageNext = 'page' + next;
                 this[pageBefore] = false;
                 this[pageNext] = true;
-                this.storageData = {
-                    page:pageNext,
-                    data:this.dataList
-                }
+                this.storageData.page = pageNext
+                this.storageData.data = this.dataList
                 localStorage.setItem(this.token,JSON.stringify(this.storageData))
-                document.querySelector('.qs-content').scrollTop = 0  //翻页时候滚动到最顶部
+                document.querySelector('.qs-content').scrollTop = 0 
             }
         }
     }
