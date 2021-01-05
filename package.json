@@ -9,7 +9,7 @@
     "build:analysis": "vue-cli-service build --mode analysis"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-component": "^1.1.1",
     "core-js": "^2.6.5",
     "less-loader": "^5.0.0",
